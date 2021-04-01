@@ -1,2 +1,0 @@
-com/springguides/countrywebservice/CountryWebServiceApplicationTests.java
- com.springguides.countrywebservice.CountryWebServiceApplicationTests
