@@ -11,6 +11,7 @@ more work to enable this.
 
 ### Running the code
 
+ 1. Run gradlew build to build both services.
  1. Open command line and run gradlew country-web-service:bootRun - This runs the SOAP service from the Spring getting started guide on 8081
  2. In a new command line run gradlew crm-api-service:bootRun - This runs the api service on 8080.
  3. Send the following request to receive the following response.
