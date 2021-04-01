@@ -1,0 +1,6 @@
+.idea
+.gradle
+country-web-service/build
+crm-api-service/build
+crm-api-service/logs
+logs
