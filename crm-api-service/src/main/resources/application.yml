@@ -1,0 +1,24 @@
+crm:
+    operations:
+    -   inputMessage: getCountryRequest
+        outputMessage: getCountryResponse
+        name: country
+        url: http://localhost:8081/ws
+        namespace:
+            name: xmlns
+            url: http://spring.io/guides/gs-producing-web-service
+    -   inputMessage: existingClientsRequest
+        outputMessage: existingClientsResponse
+        name: person
+        url: http://localhost:8081/ws
+        namespace:
+            name: xmlns
+            url: http://my.site/shcmeas/existingPeopleService
+logging:
+    level:
+        com:
+            smcgow:
+                crmapi: INFO
+        org:
+            springframework: INFO
+    register-shutdown-hook: true

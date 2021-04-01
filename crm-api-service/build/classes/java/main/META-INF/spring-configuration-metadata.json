@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "crm",
+      "type": "com.smcgow.crmapi.config.yaml.CrmProperties",
+      "sourceType": "com.smcgow.crmapi.config.yaml.CrmProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "crm.operations",
+      "type": "java.util.List<com.smcgow.crmapi.config.yaml.Operation>",
+      "sourceType": "com.smcgow.crmapi.config.yaml.CrmProperties"
+    }
+  ],
+  "hints": []
+}

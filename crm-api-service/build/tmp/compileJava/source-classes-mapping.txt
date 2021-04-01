@@ -1,0 +1,14 @@
+com/smcgow/crmapi/service/CrmApiService.java
+ com.smcgow.crmapi.service.CrmApiService
+com/smcgow/crmapi/config/ApplicationConfiguration.java
+ com.smcgow.crmapi.config.ApplicationConfiguration
+com/smcgow/crmapi/config/yaml/CrmProperties.java
+ com.smcgow.crmapi.config.yaml.CrmProperties
+com/smcgow/crmapi/controller/CrmApiController.java
+ com.smcgow.crmapi.controller.CrmApiController
+com/smcgow/crmapi/CrmApiApplication.java
+ com.smcgow.crmapi.CrmApiApplication
+com/smcgow/crmapi/config/yaml/Operation.java
+ com.smcgow.crmapi.config.yaml.Operation
+com/smcgow/crmapi/config/yaml/Namespace.java
+ com.smcgow.crmapi.config.yaml.Namespace
