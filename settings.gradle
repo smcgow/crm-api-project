@@ -1,4 +1,4 @@
 rootProject.name = 'crm-api-project'
 
-include 'country-web-service'
-include 'crm-api-service'
+include ':country-web-service'
+include ':crm-api-service'

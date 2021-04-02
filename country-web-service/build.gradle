@@ -1,24 +1,18 @@
 plugins {
 	id 'org.springframework.boot' version '2.4.4'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-	id 'java'
-	id 'war'
 }
-
-group = 'com.springguides'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
 
 jar {
 	enabled = true
 }
 
-repositories {
-	mavenCentral()
-}
-
 configurations {
 	jaxb
+}
+
+repositories {
+	mavenCentral()
 }
 
 task genJaxb {
@@ -44,15 +38,16 @@ task genJaxb {
 //compileJava.dependsOn genJaxb
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
+
 	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+
 	compile('javax.xml.bind:jaxb-api:2.3.0')
 	compile('javax.activation:activation:1.1')
 	compile('org.glassfish.jaxb:jaxb-runtime:2.3.0')
 	implementation 'wsdl4j:wsdl4j'
 	jaxb("org.glassfish.jaxb:jaxb-xjc")
-	testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+
 }
 
 test {
