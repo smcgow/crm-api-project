@@ -2,6 +2,7 @@ plugins {
     id 'org.springframework.boot' version '2.4.4'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
+    id 'war'
 }
 
 group = 'com.smcgow'
@@ -18,6 +19,8 @@ dependencies {
     implementation 'org.json:json:20210307'
     implementation 'javax.xml.soap:saaj-api:1.3.5'
     implementation 'com.sun.xml.messaging.saaj:saaj-impl:1.5.1'
+
+    providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'

@@ -3,14 +3,14 @@ crm:
     -   inputMessage: getCountryRequest
         outputMessage: getCountryResponse
         name: country
-        url: http://localhost:8081/ws
+        url: http://localhost:8080/country-service/ws
         namespace:
             name: xmlns
             url: http://spring.io/guides/gs-producing-web-service
     -   inputMessage: existingClientsRequest
         outputMessage: existingClientsResponse
         name: person
-        url: http://localhost:8081/ws
+        url: http://localhost:8080/other-service/ws
         namespace:
             name: xmlns
             url: http://my.site/shcmeas/existingPeopleService

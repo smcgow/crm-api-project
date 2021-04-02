@@ -37,3 +37,11 @@ shows the message typss which is needed for the SOAP call but not needed in the 
 
 NOTE::Any namespace references in the response will be present when returned. Need additional work to filter this.
 
+### Tomcat
+
+The applicationm is currrently configured as a multi-project gradle project and all artifacts can be deployed to tomcat through
+the run configuration. 
+
+End points:
+	1. http://[server]:[port]/[crm_api_deployment_name]/v1/country  - The endpoint for the JSON service.
+	2. http://[server]:[port]/[country_service_deployment_name]/ws  - The endpoint for the demo SOAP country service.

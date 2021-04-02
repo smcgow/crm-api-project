@@ -40,7 +40,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 import static org.springframework.http.MediaType.APPLICATION_XML_VALUE;
 
 @RestController
-@RequestMapping("/crm")
+@RequestMapping("/")
 @Slf4j
 public class CrmApiController {
 
@@ -58,7 +58,7 @@ public class CrmApiController {
     @Autowired
     private CrmApiService apiService;
 
-    @PostMapping(value = "/api/{operationName}", consumes = {APPLICATION_JSON_VALUE,APPLICATION_XML_VALUE}, produces = APPLICATION_XML_VALUE)
+    @PostMapping(value = "/v1/{operationName}", consumes = {APPLICATION_JSON_VALUE,APPLICATION_XML_VALUE}, produces = APPLICATION_XML_VALUE)
     public ResponseEntity<String> postToCrmApi(@PathVariable(name = "operationName") String operationName, HttpServletRequest request) throws IOException {
         String json = null;
         try{

@@ -1,9 +1,9 @@
-2021-04-01 21:03:29,718 INFO org.springframework.boot.StartupInfoLogger [main] Starting CrmApiApplication using Java 15 on LAPTOP-B51PEBFB with PID 96212 (C:\courses\Pluralsight\Spring\Building Web Applications and Services\crm-api-project\crm-api-service\build\classes\java\main started by 35385 in C:\courses\Pluralsight\Spring\Building Web Applications and Services\crm-api-project)
-2021-04-01 21:03:29,722 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
-2021-04-01 21:03:30,689 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
-2021-04-01 21:03:30,817 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 1035 ms
-2021-04-01 21:03:30,992 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
-2021-04-01 21:03:31,149 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
-2021-04-01 21:03:31,159 INFO org.springframework.boot.StartupInfoLogger [main] Started CrmApiApplication in 2.005 seconds (JVM running for 2.947)
-2021-04-01 21:04:18,072 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
-2021-04-01 21:04:18,180 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
+2021-04-02 11:42:04,322 INFO org.springframework.boot.StartupInfoLogger [main] Starting CrmApiApplication using Java 15 on LAPTOP-B51PEBFB with PID 100184 (C:\projects\crm-api-project\crm-api-service\build\classes\java\main started by 35385 in C:\projects\crm-api-project)
+2021-04-02 11:42:04,328 INFO org.springframework.boot.SpringApplication [main] No active profile set, falling back to default profiles: default
+2021-04-02 11:42:05,186 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat initialized with port(s): 8080 (http)
+2021-04-02 11:42:05,264 INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [main] Root WebApplicationContext: initialization completed in 889 ms
+2021-04-02 11:42:05,441 INFO org.springframework.scheduling.concurrent.ExecutorConfigurationSupport [main] Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-02 11:42:05,597 INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer [main] Tomcat started on port(s): 8080 (http) with context path ''
+2021-04-02 11:42:05,608 INFO org.springframework.boot.StartupInfoLogger [main] Started CrmApiApplication in 1.767 seconds (JVM running for 2.402)
+2021-04-02 11:51:07,425 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Initializing Servlet 'dispatcherServlet'
+2021-04-02 11:51:07,426 INFO org.springframework.web.servlet.FrameworkServlet [http-nio-8080-exec-2] Completed initialization in 1 ms
