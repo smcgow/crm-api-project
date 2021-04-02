@@ -40,7 +40,8 @@ NOTE::Any namespace references in the response will be present when returned. Ne
 ### Tomcat
 
 The applicationm is currrently configured as a multi-project gradle project and all artifacts can be deployed to tomcat through
-the run configuration. 
+the run configuration. If deploying to tomcat, you will need to update application.yml for the crm-api-service to point to the
+correct context that is used on tomcat and possibly you need to update the port too..
 
 End points:
 	1. http://[server]:[port]/[crm_api_deployment_name]/v1/country  - The endpoint for the JSON service.

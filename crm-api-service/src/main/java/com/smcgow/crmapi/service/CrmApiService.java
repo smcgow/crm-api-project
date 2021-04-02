@@ -232,6 +232,8 @@ public class CrmApiService {
 
     }
 
+
+
     private void handleServiceError(String message) {
         log.error(message);
         throw new RuntimeException(message);
