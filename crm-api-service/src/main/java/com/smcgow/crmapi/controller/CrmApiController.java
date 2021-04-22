@@ -47,26 +47,16 @@ public class CrmApiController {
     public static final String CONTENT_TYPE = "content-type";
 
     private CrmProperties crmProperties;
-
-    private static final String DEFAULT_ERR = "{\"code\" : \"500\", \"message\" :  \"Internal server error\"}";
-
-    @Autowired
-    public CrmApiController(CrmProperties crmProperties) {
-        this.crmProperties = crmProperties;
-    }
-
-    @Autowired
     private CrmApiService apiService;
 
-    @PostMapping(value = "/v1/{operationName}", consumes = {APPLICATION_JSON_VALUE,APPLICATION_XML_VALUE}, produces = APPLICATION_XML_VALUE)
+    public CrmApiController(CrmProperties crmProperties, CrmApiService apiService) {
+        this.crmProperties = crmProperties;
+        this.apiService = apiService;
+    }
+
+    @PostMapping(value = "/v1/{operationName}", consumes = {APPLICATION_JSON_VALUE}, produces = {APPLICATION_JSON_VALUE})
     public ResponseEntity<String> postToCrmApi(@PathVariable(name = "operationName") String operationName, HttpServletRequest request) throws IOException {
-        String json = null;
-        try{
-            json = apiService.invoke(operationName,request);
-        } catch (Exception e) {
-            log.error("Call to api service failed in the controller",e);
-            return new ResponseEntity<>(DEFAULT_ERR,HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        String json = apiService.invoke(operationName,request);
         ResponseEntity<String> response = new ResponseEntity(json, HttpStatus.OK);
         return response;
     }

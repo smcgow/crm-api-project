@@ -2,6 +2,8 @@ package com.smcgow.crmapi.config.yaml;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Operation {
 
@@ -10,5 +12,6 @@ public class Operation {
     String outputMessage;
     String url;
     Namespace namespace;
+    List<Authorization> authorizations;
 
 }

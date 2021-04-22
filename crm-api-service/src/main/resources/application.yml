@@ -7,6 +7,13 @@ crm:
         namespace:
             name: xmlns
             url: http://spring.io/guides/gs-producing-web-service
+        authorizations:
+            - username: user
+              password: password
+            - username: 12414512
+              password: fgsfgfsgfds
+            - username: 809482380
+              password: gfdsgsdfgsgs
     -   inputMessage: existingClientsRequest
         outputMessage: existingClientsResponse
         name: person
