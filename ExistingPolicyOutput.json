@@ -1,0 +1,1229 @@
+{
+	"existingPolicyOutput": {
+		"productProposalResponse": {
+			"successFlag": 0,
+			"messages": {
+				"ServiceMessage": [
+					{
+						"severity": "E",
+						"code": "",
+						"message": "String"
+					}
+				]
+			},
+			"cohortCalculation": {
+				"scriptMessage": "String",
+				"cohort": {
+					"code": "",
+					"name": "",
+					"planList": {
+						"Plan": [
+							{
+								"coversetCode": "000",
+								"planName": "",
+								"planScreenName": "",
+								"planType": {
+									"planTypeName": "",
+									"id": 0
+								},
+								"precedence": 0,
+								"nrcProductCode": 0,
+								"nrcSubProductCode": 0,
+								"messages": {
+									"Message": [
+										{
+											"message": "String"
+										}
+									]
+								},
+								"quotePrice": {
+									"system": "VHI_IE",
+									"childRenewalAmount": 3.141590118408203125,
+									"totalAmount": 3.141590118408203125,
+									"studentDiscountAmount": 3.141590118408203125,
+									"totalDiscount": 3.141590118408203125,
+									"adultRenewalAmount": 3.141590118408203125,
+									"studentRenewalAmount": 3.141590118408203125,
+									"adultDiscountAmount": 3.141590118408203125,
+									"childDiscountAmount": 3.141590118408203125,
+									"totalAmountNoDiscount": 3.141590118408203125,
+									"policyRating": {
+										"currentCostCore": {
+											"CoreCostBreakdown": [
+												{
+													"coverset": "",
+													"partnerName": "",
+													"subsidy": 0,
+													"deduction": 3.141590118408203125,
+													"payment": 3.141590118408203125,
+													"total": 3.141590118408203125
+												}
+											]
+										},
+										"amendmentCostCore": {
+											"CoreCostBreakdown": [
+												{
+													"coverset": "",
+													"partnerName": "",
+													"subsidy": 0,
+													"deduction": 3.141590118408203125,
+													"payment": 3.141590118408203125,
+													"total": 3.141590118408203125
+												}
+											]
+										},
+										"currentCostTravel": {
+											"TravelCostBreakdown": [
+												{
+													"cover": "",
+													"basicRate": 3.141590118408203125,
+													"discount": 0,
+													"currentDiscount": 3.141590118408203125,
+													"premium": 3.141590118408203125
+												}
+											]
+										},
+										"amendmentCostTravel": {
+											"TravelCostBreakdown": [
+												{
+													"cover": "",
+													"basicRate": 3.141590118408203125,
+													"discount": 0,
+													"currentDiscount": 3.141590118408203125,
+													"premium": 3.141590118408203125
+												}
+											]
+										},
+										"totalCost": {
+											"TotalCostBreakdown": [
+												{
+													"type": "",
+													"subsidy": 0,
+													"deduction": 3.141590118408203125,
+													"discount": 3.141590118408203125,
+													"payment": 3.141590118408203125,
+													"total": 3.141590118408203125
+												}
+											]
+										},
+										"paymentRequired": "Y"
+									}
+								}
+							}
+						]
+					},
+					"description": "String",
+					"notes": "String",
+					"messages": {
+						"Message": [
+							{
+								"message": "String"
+							}
+						]
+					},
+					"policyId": 0
+				},
+				"policyId": 0,
+				"fitIndicator": "String"
+			},
+			"cohort": {
+				"code": "",
+				"name": "",
+				"planList": {
+					"Plan": [
+						{
+							"coversetCode": "000",
+							"planName": "",
+							"planScreenName": "",
+							"planType": {
+								"planTypeName": "",
+								"id": 0
+							},
+							"precedence": 0,
+							"nrcProductCode": 0,
+							"nrcSubProductCode": 0,
+							"messages": {
+								"Message": [
+									{
+										"message": "String"
+									}
+								]
+							},
+							"quotePrice": {
+								"system": "GROUP",
+								"childRenewalAmount": 3.141590118408203125,
+								"totalAmount": 3.141590118408203125,
+								"studentDiscountAmount": 3.141590118408203125,
+								"totalDiscount": 3.141590118408203125,
+								"adultRenewalAmount": 3.141590118408203125,
+								"studentRenewalAmount": 3.141590118408203125,
+								"adultDiscountAmount": 3.141590118408203125,
+								"childDiscountAmount": 3.141590118408203125,
+								"totalAmountNoDiscount": 3.141590118408203125,
+								"policyRating": {
+									"currentCostCore": {
+										"CoreCostBreakdown": [
+											{
+												"coverset": "",
+												"partnerName": "",
+												"subsidy": 0,
+												"deduction": 3.141590118408203125,
+												"payment": 3.141590118408203125,
+												"total": 3.141590118408203125
+											}
+										]
+									},
+									"amendmentCostCore": {
+										"CoreCostBreakdown": [
+											{
+												"coverset": "",
+												"partnerName": "",
+												"subsidy": 0,
+												"deduction": 3.141590118408203125,
+												"payment": 3.141590118408203125,
+												"total": 3.141590118408203125
+											}
+										]
+									},
+									"currentCostTravel": {
+										"TravelCostBreakdown": [
+											{
+												"cover": "",
+												"basicRate": 3.141590118408203125,
+												"discount": 0,
+												"currentDiscount": 3.141590118408203125,
+												"premium": 3.141590118408203125
+											}
+										]
+									},
+									"amendmentCostTravel": {
+										"TravelCostBreakdown": [
+											{
+												"cover": "",
+												"basicRate": 3.141590118408203125,
+												"discount": 0,
+												"currentDiscount": 3.141590118408203125,
+												"premium": 3.141590118408203125
+											}
+										]
+									},
+									"totalCost": {
+										"TotalCostBreakdown": [
+											{
+												"type": "",
+												"subsidy": 0,
+												"deduction": 3.141590118408203125,
+												"discount": 3.141590118408203125,
+												"payment": 3.141590118408203125,
+												"total": 3.141590118408203125
+											}
+										]
+									},
+									"paymentRequired": "Y"
+								}
+							}
+						}
+					]
+				},
+				"description": "String",
+				"notes": "String",
+				"messages": {
+					"Message": [
+						{
+							"message": "String"
+						}
+					]
+				},
+				"policyId": 0
+			},
+			"partner": {
+				"id": 0,
+				"title": {
+					"internalValue": "0",
+					"screenValue": ""
+				},
+				"firstName": "",
+				"middleName": "",
+				"lastName": "",
+				"fullName": "",
+				"gender": "Male",
+				"dateOfBirth": "1957-08-13",
+				"primaryAddress": {
+					"id": 0,
+					"line1": "aaa",
+					"line2": "aaa",
+					"line3": "a",
+					"line4": "a",
+					"line5": "a",
+					"postcode": {
+						"internalValue": "0",
+						"screenValue": ""
+					},
+					"country": {
+						"internalValue": "0",
+						"screenValue": ""
+					},
+					"homeCountry": {
+						"internalValue": "0",
+						"screenValue": ""
+					},
+					"countryOfResidence": {
+						"internalValue": "0",
+						"screenValue": ""
+					}
+				},
+				"addressList": {
+					"Address": [
+						{
+							"id": 0,
+							"line1": "aaa",
+							"line2": "aaa",
+							"line3": "a",
+							"line4": "a",
+							"line5": "a",
+							"postcode": {
+								"internalValue": "0",
+								"screenValue": ""
+							},
+							"country": {
+								"internalValue": "0",
+								"screenValue": ""
+							},
+							"homeCountry": {
+								"internalValue": "0",
+								"screenValue": ""
+							},
+							"countryOfResidence": {
+								"internalValue": "0",
+								"screenValue": ""
+							}
+						}
+					]
+				},
+				"emailAddress": "aaaaa",
+				"homePhone": "",
+				"mobilePhone": "",
+				"workPhone": "",
+				"type": "FULL",
+				"memberIndicator": "Y",
+				"policyNumber": 0,
+				"studentIndicator": "N",
+				"currentPolicies": {
+					"Policy": [
+						{
+							"id": 0,
+							"coverset": {
+								"code": "000",
+								"name": "",
+								"studentAgeLimit": 0,
+								"coverList": {
+									"Cover": [
+										{
+											"code": "000",
+											"name": "",
+											"mandatory": "N",
+											"selected": "Y",
+											"premium": {
+												"netSubsidy": 3.141590118408203125,
+												"netDeduction": 3.141590118408203125,
+												"taxRelief": 3.141590118408203125,
+												"lcrAmount": 3.141590118408203125,
+												"discount": 3.141590118408203125,
+												"netPayment": 3.141590118408203125,
+												"grossSubsidy": 3.141590118408203125,
+												"grossPremium": 3.141590118408203125,
+												"nettPremium": 3.141590118408203125,
+												"discountLoyalty": 3.141590118408203125,
+												"discountOnline": 3.141590118408203125,
+												"discountPayment": 3.141590118408203125
+											}
+										}
+									]
+								},
+								"discount": {
+									"percentage": 0,
+									"reason": "String"
+								},
+								"keyBenefitList": {
+									"KeyBenefit": [
+										{
+											"cohort": "",
+											"product": "TRV",
+											"coversetCode": "000",
+											"coversetName": "",
+											"geoCoverage": "0",
+											"priority": 0,
+											"sectionHeading": "",
+											"sectionContent": "",
+											"imageCode": ""
+										}
+									]
+								},
+								"apmBenefitList": {
+									"APMBenefit": [
+										{
+											"id": 0,
+											"type": "0",
+											"description": "",
+											"banding": "",
+											"name": "0"
+										}
+									]
+								}
+							},
+							"startDate": "1957-08-13",
+							"termStartDate": "1957-08-13",
+							"termEndDate": "1957-08-13",
+							"endDate": "1957-08-13",
+							"renewalDate": "1957-08-13",
+							"dynamicDaysBeforeRenewal": 0,
+							"dynamicDaysAfterRenewal": 0,
+							"projectedEndDate": "1957-08-13",
+							"coolOffDate": "1957-08-13",
+							"regressionCutOffDate": "1957-08-13",
+							"webRenewalStartDate": "1957-08-13",
+							"webRenewalEndDate": "1957-08-13",
+							"lockedInWIPIndicator": "N",
+							"customPolProcIndicator": "Y",
+							"scheme": {
+								"id": 0,
+								"token": "",
+								"name": "",
+								"groupName": "",
+								"startDate": "1957-08-13",
+								"renewalDate": "1957-08-13",
+								"policyRenewalDate": "1957-08-13",
+								"earliestStartDate": "1957-08-13",
+								"latestEndDate": "1957-08-13",
+								"earliestPolicyCreationDate": "1957-08-13",
+								"latestPolicyCreationDate": "1957-08-13",
+								"webRenewalStartDate": "1957-08-13",
+								"webRenewalEndDate": "1957-08-13",
+								"suspensionInd": "Y",
+								"deduction": "N",
+								"subsidy": "Y",
+								"secApprovalRequiredInd": "N",
+								"webNotificationType": "0",
+								"webAvailableInd": "Y",
+								"webCustomEnrolementInd": "Y",
+								"vhiOnlineDoctorInd": "N",
+								"changesEffectiveRenewalDateInd": "N",
+								"schemePartners": {
+									"SchemePartner": [
+										{
+											"roleType": "0",
+											"roleDescription": "",
+											"id": 0,
+											"fullName": "",
+											"address": {
+												"id": 0,
+												"line1": "aaa",
+												"line2": "aaa",
+												"line3": "a",
+												"line4": "a",
+												"line5": "a",
+												"postcode": {
+												},
+												"country": {
+												},
+												"homeCountry": {
+												},
+												"countryOfResidence": {
+												}
+											},
+											"mobilePhone": "",
+											"workPhone": "",
+											"emailAddress": "aaaaa"
+										}
+									]
+								},
+								"categoryList": {
+									"Category": [
+										{
+											"id": 0,
+											"token": "",
+											"name": "aaa",
+											"closedDate": "1957-08-13",
+											"webCategoryName": "",
+											"webRenewalInd": "N",
+											"webAvailableInd": "N",
+											"memberReferenceLabel": "",
+											"memberRefMandatoryInd": "Y",
+											"memberReferenceFormat": "",
+											"costCentreLabel": "",
+											"costCentreMandatoryInd": "N",
+											"costCentreFormat": "",
+											"newBusiness": "N",
+											"midTermAdjustment": "Y",
+											"productList": {
+												"Product": [
+													{
+														"name": ""
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"category": {
+								"id": 0,
+								"token": "",
+								"name": "aaa",
+								"closedDate": "1957-08-13",
+								"webCategoryName": "",
+								"webRenewalInd": "N",
+								"webAvailableInd": "N",
+								"memberReferenceLabel": "",
+								"memberRefMandatoryInd": "Y",
+								"memberReferenceFormat": "",
+								"costCentreLabel": "",
+								"costCentreMandatoryInd": "Y",
+								"costCentreFormat": "",
+								"newBusiness": "N",
+								"midTermAdjustment": "Y",
+								"productList": {
+									"Product": [
+										{
+											"name": "",
+											"insuranceProduct": "",
+											"categoryId": 0,
+											"productVersion": 0,
+											"versionNo": 0,
+											"fromDate": "1957-08-13",
+											"toDate": "1957-08-13",
+											"subsidyBasis": "",
+											"subsidyAvailableIndicator": "N",
+											"childAgeLimit": 0,
+											"profileList": {
+												"Profile": [
+													{
+														"membership": "SPOUSE",
+														"recover": "N"
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"type": "GL3",
+							"partnerList": {
+								"InsuredPerson": [
+									{
+										"id": 0,
+										"personIdentifier": "00000000-0000-1000-8000-000000000000",
+										"title": {
+											"internalValue": "0",
+											"screenValue": ""
+										},
+										"firstName": "",
+										"middleName": "",
+										"lastName": "",
+										"fullName": "",
+										"gender": "Male",
+										"dateOfBirth": "1957-08-13",
+										"age": 0,
+										"primaryAddress": {
+											"id": 0,
+											"line1": "aaa",
+											"line2": "aaa",
+											"line3": "a",
+											"line4": "a",
+											"line5": "a",
+											"postcode": {
+												"internalValue": "0",
+												"screenValue": ""
+											},
+											"country": {
+												"internalValue": "0",
+												"screenValue": ""
+											},
+											"homeCountry": {
+												"internalValue": "0",
+												"screenValue": ""
+											},
+											"countryOfResidence": {
+												"internalValue": "0",
+												"screenValue": ""
+											}
+										},
+										"addressList": {
+											"Address": [
+												{
+													"id": 0,
+													"line1": "aaa",
+													"line2": "aaa",
+													"line3": "a",
+													"line4": "a",
+													"line5": "a",
+													"postcode": {
+													},
+													"country": {
+													},
+													"homeCountry": {
+													},
+													"countryOfResidence": {
+													}
+												}
+											]
+										},
+										"emailAddress": "aaaaa",
+										"homePhone": "",
+										"mobilePhone": "",
+										"workPhone": "",
+										"type": "PROSPECT",
+										"memberIndicator": "Y",
+										"policyNumber": 0,
+										"studentIndicator": "N",
+										"studentSubsidyAvailableInd": "N",
+										"documentationIndicator": "EMAIL",
+										"marketingPreferences": "",
+										"studentDetail": {
+											"collegeCode": 0,
+											"collegeName": "",
+											"startDate": "1957-08-13",
+											"endDate": "1957-08-13",
+											"endReason": "LEFT"
+										},
+										"ppsNumber": "0000000A",
+										"staffNumber": "",
+										"costCentre": "",
+										"embassy": "",
+										"previousHealthInsurer": "",
+										"primaryLocation": {
+											"tripType": "",
+											"country": "",
+											"reasonForTraveling": ""
+										},
+										"insuredFrom": "1957-08-13",
+										"insuredTo": "1957-08-13",
+										"coverset": {
+											"code": "000",
+											"name": "",
+											"studentAgeLimit": 0,
+											"coverList": {
+												"Cover": [
+													{
+													}
+												]
+											},
+											"discount": {
+												"percentage": 0,
+												"reason": "String"
+											},
+											"keyBenefitList": {
+												"KeyBenefit": [
+													{
+													}
+												]
+											},
+											"apmBenefitList": {
+												"APMBenefit": [
+													{
+													}
+												]
+											}
+										},
+										"lifeStage": "ADULT",
+										"relationship": "PAR",
+										"membershipType": "DEPENDANT",
+										"isPolicyHolderIndicator": "N",
+										"removalReason": {
+											"internalValue": "0",
+											"screenValue": ""
+										},
+										"premium": {
+											"netSubsidy": 3.141590118408203125,
+											"netDeduction": 3.141590118408203125,
+											"taxRelief": 3.141590118408203125,
+											"lcrAmount": 3.141590118408203125,
+											"discount": 3.141590118408203125,
+											"netPayment": 3.141590118408203125,
+											"grossSubsidy": 3.141590118408203125,
+											"grossPremium": 3.141590118408203125,
+											"nettPremium": 3.141590118408203125,
+											"discountLoyalty": 3.141590118408203125,
+											"discountOnline": 3.141590118408203125,
+											"discountPayment": 3.141590118408203125
+										},
+										"previousMedicalCoverList": {
+											"PreviousMedicalCover": [
+												{
+													"partnerId": 0,
+													"recordType": "NRS",
+													"previousMedicalNo": 0,
+													"insProvider": {
+													},
+													"insProviderProduct": {
+													},
+													"insProviderCoverset": {
+													},
+													"customerReference": "",
+													"customerName": "",
+													"effectiveFromDate": "1957-08-13",
+													"effectiveToDate": "1957-08-13",
+													"declarationDate": "1957-08-13",
+													"lcrCreditMonths": 0,
+													"lcrUnemploymentMonths": 0,
+													"lcrExemptionIndicator": "N",
+													"lcrLoadingPercent": "0"
+												}
+											]
+										},
+										"lcrDetails": {
+											"age": 0,
+											"lcrAge": 0,
+											"exemptionIndicator": "N",
+											"creditMonths": 0,
+											"unemploymentMonths": 0,
+											"loadingPercent": "0"
+										},
+										"lcrLoading": "0",
+										"lcrAge": 0,
+										"lcrExemptionIndicator": "Y",
+										"overridingLcrRate": "0"
+									}
+								]
+							},
+							"endOfTermAction": "LAPSE_AUTOMATICALLY",
+							"endOfTermActivity": "REMINDER",
+							"policyRenewedIndicator": "N",
+							"failedToRenewIndicator": "Y",
+							"accountList": {
+								"Account": [
+									{
+										"id": 0,
+										"billingPlanList": {
+											"BillingPlan": [
+												{
+													"id": 0,
+													"paymentInformation": {
+														"paymentMethod": {
+															"type": "CHEQUE"
+														}
+													},
+													"current": "Y",
+													"nextInstAmount": 3.141590118408203125,
+													"nextInstDate": "1957-08-13",
+													"remainingInstallments": 0
+												}
+											]
+										}
+									}
+								]
+							},
+							"premium": {
+								"netSubsidy": 3.141590118408203125,
+								"netDeduction": 3.141590118408203125,
+								"taxRelief": 3.141590118408203125,
+								"lcrAmount": 3.141590118408203125,
+								"discount": 3.141590118408203125,
+								"netPayment": 3.141590118408203125,
+								"grossSubsidy": 3.141590118408203125,
+								"grossPremium": 3.141590118408203125,
+								"nettPremium": 3.141590118408203125,
+								"discountLoyalty": 3.141590118408203125,
+								"discountOnline": 3.141590118408203125,
+								"discountPayment": 3.141590118408203125
+							},
+							"geographicalCoverage": {
+								"internalValue": "0",
+								"screenValue": ""
+							},
+							"factFindIndicator": "Y",
+							"medicalNeedsIndicator": "N"
+						}
+					]
+				},
+				"associatedPolicies": {
+					"Policy": [
+						{
+							"id": 0,
+							"coverset": {
+								"code": "000",
+								"name": "",
+								"studentAgeLimit": 0,
+								"coverList": {
+									"Cover": [
+										{
+											"code": "000",
+											"name": "",
+											"mandatory": "Y",
+											"selected": "Y",
+											"premium": {
+												"netSubsidy": 3.141590118408203125,
+												"netDeduction": 3.141590118408203125,
+												"taxRelief": 3.141590118408203125,
+												"lcrAmount": 3.141590118408203125,
+												"discount": 3.141590118408203125,
+												"netPayment": 3.141590118408203125,
+												"grossSubsidy": 3.141590118408203125,
+												"grossPremium": 3.141590118408203125,
+												"nettPremium": 3.141590118408203125,
+												"discountLoyalty": 3.141590118408203125,
+												"discountOnline": 3.141590118408203125,
+												"discountPayment": 3.141590118408203125
+											}
+										}
+									]
+								},
+								"discount": {
+									"percentage": 0,
+									"reason": "String"
+								},
+								"keyBenefitList": {
+									"KeyBenefit": [
+										{
+											"cohort": "",
+											"product": "GLB",
+											"coversetCode": "000",
+											"coversetName": "",
+											"geoCoverage": "0",
+											"priority": 0,
+											"sectionHeading": "",
+											"sectionContent": "",
+											"imageCode": ""
+										}
+									]
+								},
+								"apmBenefitList": {
+									"APMBenefit": [
+										{
+											"id": 0,
+											"type": "0",
+											"description": "",
+											"banding": "",
+											"name": "0"
+										}
+									]
+								}
+							},
+							"startDate": "1957-08-13",
+							"termStartDate": "1957-08-13",
+							"termEndDate": "1957-08-13",
+							"endDate": "1957-08-13",
+							"renewalDate": "1957-08-13",
+							"dynamicDaysBeforeRenewal": 0,
+							"dynamicDaysAfterRenewal": 0,
+							"projectedEndDate": "1957-08-13",
+							"coolOffDate": "1957-08-13",
+							"regressionCutOffDate": "1957-08-13",
+							"webRenewalStartDate": "1957-08-13",
+							"webRenewalEndDate": "1957-08-13",
+							"lockedInWIPIndicator": "Y",
+							"customPolProcIndicator": "Y",
+							"scheme": {
+								"id": 0,
+								"token": "",
+								"name": "",
+								"groupName": "",
+								"startDate": "1957-08-13",
+								"renewalDate": "1957-08-13",
+								"policyRenewalDate": "1957-08-13",
+								"earliestStartDate": "1957-08-13",
+								"latestEndDate": "1957-08-13",
+								"earliestPolicyCreationDate": "1957-08-13",
+								"latestPolicyCreationDate": "1957-08-13",
+								"webRenewalStartDate": "1957-08-13",
+								"webRenewalEndDate": "1957-08-13",
+								"suspensionInd": "N",
+								"deduction": "N",
+								"subsidy": "N",
+								"secApprovalRequiredInd": "Y",
+								"webNotificationType": "0",
+								"webAvailableInd": "N",
+								"webCustomEnrolementInd": "Y",
+								"vhiOnlineDoctorInd": "Y",
+								"changesEffectiveRenewalDateInd": "N",
+								"schemePartners": {
+									"SchemePartner": [
+										{
+											"roleType": "0",
+											"roleDescription": "",
+											"id": 0,
+											"fullName": "",
+											"address": {
+												"id": 0,
+												"line1": "aaa",
+												"line2": "aaa",
+												"line3": "a",
+												"line4": "a",
+												"line5": "a",
+												"postcode": {
+												},
+												"country": {
+												},
+												"homeCountry": {
+												},
+												"countryOfResidence": {
+												}
+											},
+											"mobilePhone": "",
+											"workPhone": "",
+											"emailAddress": "aaaaa"
+										}
+									]
+								},
+								"categoryList": {
+									"Category": [
+										{
+											"id": 0,
+											"token": "",
+											"name": "aaa",
+											"closedDate": "1957-08-13",
+											"webCategoryName": "",
+											"webRenewalInd": "N",
+											"webAvailableInd": "Y",
+											"memberReferenceLabel": "",
+											"memberRefMandatoryInd": "Y",
+											"memberReferenceFormat": "",
+											"costCentreLabel": "",
+											"costCentreMandatoryInd": "N",
+											"costCentreFormat": "",
+											"newBusiness": "Y",
+											"midTermAdjustment": "Y",
+											"productList": {
+												"Product": [
+													{
+														"name": ""
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"category": {
+								"id": 0,
+								"token": "",
+								"name": "aaa",
+								"closedDate": "1957-08-13",
+								"webCategoryName": "",
+								"webRenewalInd": "Y",
+								"webAvailableInd": "N",
+								"memberReferenceLabel": "",
+								"memberRefMandatoryInd": "N",
+								"memberReferenceFormat": "",
+								"costCentreLabel": "",
+								"costCentreMandatoryInd": "Y",
+								"costCentreFormat": "",
+								"newBusiness": "Y",
+								"midTermAdjustment": "Y",
+								"productList": {
+									"Product": [
+										{
+											"name": "",
+											"insuranceProduct": "",
+											"categoryId": 0,
+											"productVersion": 0,
+											"versionNo": 0,
+											"fromDate": "1957-08-13",
+											"toDate": "1957-08-13",
+											"subsidyBasis": "",
+											"subsidyAvailableIndicator": "N",
+											"childAgeLimit": 0,
+											"profileList": {
+												"Profile": [
+													{
+														"membership": "OTHER",
+														"recover": "Y"
+													}
+												]
+											}
+										}
+									]
+								}
+							},
+							"type": "GL6",
+							"partnerList": {
+								"InsuredPerson": [
+									{
+										"id": 0,
+										"personIdentifier": "00000000-0000-1000-8000-000000000000",
+										"title": {
+											"internalValue": "0",
+											"screenValue": ""
+										},
+										"firstName": "",
+										"middleName": "",
+										"lastName": "",
+										"fullName": "",
+										"gender": "Female",
+										"dateOfBirth": "1957-08-13",
+										"age": 0,
+										"primaryAddress": {
+											"id": 0,
+											"line1": "aaa",
+											"line2": "aaa",
+											"line3": "a",
+											"line4": "a",
+											"line5": "a",
+											"postcode": {
+												"internalValue": "0",
+												"screenValue": ""
+											},
+											"country": {
+												"internalValue": "0",
+												"screenValue": ""
+											},
+											"homeCountry": {
+												"internalValue": "0",
+												"screenValue": ""
+											},
+											"countryOfResidence": {
+												"internalValue": "0",
+												"screenValue": ""
+											}
+										},
+										"addressList": {
+											"Address": [
+												{
+													"id": 0,
+													"line1": "aaa",
+													"line2": "aaa",
+													"line3": "a",
+													"line4": "a",
+													"line5": "a",
+													"postcode": {
+													},
+													"country": {
+													},
+													"homeCountry": {
+													},
+													"countryOfResidence": {
+													}
+												}
+											]
+										},
+										"emailAddress": "aaaaa",
+										"homePhone": "",
+										"mobilePhone": "",
+										"workPhone": "",
+										"type": "UNKNOWN",
+										"memberIndicator": "Y",
+										"policyNumber": 0,
+										"studentIndicator": "Y",
+										"studentSubsidyAvailableInd": "Y",
+										"documentationIndicator": "POST",
+										"marketingPreferences": "",
+										"studentDetail": {
+											"collegeCode": 0,
+											"collegeName": "",
+											"startDate": "1957-08-13",
+											"endDate": "1957-08-13",
+											"endReason": "COMP"
+										},
+										"ppsNumber": "0000000A",
+										"staffNumber": "",
+										"costCentre": "",
+										"embassy": "",
+										"previousHealthInsurer": "",
+										"primaryLocation": {
+											"tripType": "",
+											"country": "",
+											"reasonForTraveling": ""
+										},
+										"insuredFrom": "1957-08-13",
+										"insuredTo": "1957-08-13",
+										"coverset": {
+											"code": "000",
+											"name": "",
+											"studentAgeLimit": 0,
+											"coverList": {
+												"Cover": [
+													{
+													}
+												]
+											},
+											"discount": {
+												"percentage": 0,
+												"reason": "String"
+											},
+											"keyBenefitList": {
+												"KeyBenefit": [
+													{
+													}
+												]
+											},
+											"apmBenefitList": {
+												"APMBenefit": [
+													{
+													}
+												]
+											}
+										},
+										"lifeStage": "ADULT",
+										"relationship": "CHI",
+										"membershipType": "DEPENDANT",
+										"isPolicyHolderIndicator": "Y",
+										"removalReason": {
+											"internalValue": "0",
+											"screenValue": ""
+										},
+										"premium": {
+											"netSubsidy": 3.141590118408203125,
+											"netDeduction": 3.141590118408203125,
+											"taxRelief": 3.141590118408203125,
+											"lcrAmount": 3.141590118408203125,
+											"discount": 3.141590118408203125,
+											"netPayment": 3.141590118408203125,
+											"grossSubsidy": 3.141590118408203125,
+											"grossPremium": 3.141590118408203125,
+											"nettPremium": 3.141590118408203125,
+											"discountLoyalty": 3.141590118408203125,
+											"discountOnline": 3.141590118408203125,
+											"discountPayment": 3.141590118408203125
+										},
+										"previousMedicalCoverList": {
+											"PreviousMedicalCover": [
+												{
+													"partnerId": 0,
+													"recordType": "UEM",
+													"previousMedicalNo": 0,
+													"insProvider": {
+													},
+													"insProviderProduct": {
+													},
+													"insProviderCoverset": {
+													},
+													"customerReference": "",
+													"customerName": "",
+													"effectiveFromDate": "1957-08-13",
+													"effectiveToDate": "1957-08-13",
+													"declarationDate": "1957-08-13",
+													"lcrCreditMonths": 0,
+													"lcrUnemploymentMonths": 0,
+													"lcrExemptionIndicator": "N",
+													"lcrLoadingPercent": "0"
+												}
+											]
+										},
+										"lcrDetails": {
+											"age": 0,
+											"lcrAge": 0,
+											"exemptionIndicator": "Y",
+											"creditMonths": 0,
+											"unemploymentMonths": 0,
+											"loadingPercent": "0"
+										},
+										"lcrLoading": "0",
+										"lcrAge": 0,
+										"lcrExemptionIndicator": "N",
+										"overridingLcrRate": "0"
+									}
+								]
+							},
+							"endOfTermAction": "MANUAL_RENEWAL",
+							"endOfTermActivity": "LAPSE",
+							"policyRenewedIndicator": "N",
+							"failedToRenewIndicator": "Y",
+							"accountList": {
+								"Account": [
+									{
+										"id": 0,
+										"billingPlanList": {
+											"BillingPlan": [
+												{
+													"id": 0,
+													"paymentInformation": {
+														"paymentMethod": {
+															"type": "DIRECT_DEBIT"
+														}
+													},
+													"current": "Y",
+													"nextInstAmount": 3.141590118408203125,
+													"nextInstDate": "1957-08-13",
+													"remainingInstallments": 0
+												}
+											]
+										}
+									}
+								]
+							},
+							"premium": {
+								"netSubsidy": 3.141590118408203125,
+								"netDeduction": 3.141590118408203125,
+								"taxRelief": 3.141590118408203125,
+								"lcrAmount": 3.141590118408203125,
+								"discount": 3.141590118408203125,
+								"netPayment": 3.141590118408203125,
+								"grossSubsidy": 3.141590118408203125,
+								"grossPremium": 3.141590118408203125,
+								"nettPremium": 3.141590118408203125,
+								"discountLoyalty": 3.141590118408203125,
+								"discountOnline": 3.141590118408203125,
+								"discountPayment": 3.141590118408203125
+							},
+							"geographicalCoverage": {
+								"internalValue": "0",
+								"screenValue": ""
+							},
+							"factFindIndicator": "N",
+							"medicalNeedsIndicator": "N"
+						}
+					]
+				},
+				"documentationIndicator": "POST",
+				"marketingPreferences": "",
+				"studentDetail": {
+					"collegeCode": 0,
+					"collegeName": "",
+					"startDate": "1957-08-13",
+					"endDate": "1957-08-13",
+					"endReason": "GRAD"
+				},
+				"ppsNumber": "0000000A",
+				"previousHealthInsurer": "",
+				"primaryLocation": {
+					"tripType": "",
+					"country": "",
+					"reasonForTraveling": ""
+				},
+				"previousMedicalCoverList": {
+					"PreviousMedicalCover": [
+						{
+							"partnerId": 0,
+							"recordType": "NRS",
+							"previousMedicalNo": 0,
+							"insProvider": {
+								"internalValue": "0",
+								"screenValue": ""
+							},
+							"insProviderProduct": {
+								"internalValue": "0",
+								"screenValue": ""
+							},
+							"insProviderCoverset": {
+								"internalValue": "0",
+								"screenValue": ""
+							},
+							"customerReference": "",
+							"customerName": "",
+							"effectiveFromDate": "1957-08-13",
+							"effectiveToDate": "1957-08-13",
+							"declarationDate": "1957-08-13",
+							"lcrCreditMonths": 0,
+							"lcrUnemploymentMonths": 0,
+							"lcrExemptionIndicator": "N",
+							"lcrLoadingPercent": "0"
+						}
+					]
+				},
+				"lcrDetails": {
+					"age": 0,
+					"lcrAge": 0,
+					"exemptionIndicator": "Y",
+					"creditMonths": 0,
+					"unemploymentMonths": 0,
+					"loadingPercent": "0"
+				},
+				"snapSendClaimInd": "N",
+				"vhiOnlineDoctorInd": "N",
+				"staffNumber": "",
+				"costCentre": "",
+				"embassy": ""
+			}
+		}
+	}
+}
