@@ -1,0 +1,4228 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"additionalProperties": false,
+	"definitions": {
+		".tns:SECURITY_TOKEN": {
+			"$ref": "#/definitions/tns:ServiceCredentials",
+			"description": "This is a token consisting of a username and password field. There is both a secure and an insecure gateway for sending ciboodle webservice requests. When going via the secure getway the client must include this authentication token as part of the request header to verify their identity. "
+		},
+		"tns:APMBenefit": {
+			"additionalProperties": false,
+			"description": "Represents an APMBenefit\"",
+			"properties": {
+				"tns:banding": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:description": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:name": {
+					"$ref": "#/definitions/tns:stringFormatType1"
+				},
+				"tns:type": {
+					"$ref": "#/definitions/tns:stringFormatType1"
+				}
+			},
+			"type": "object"
+		},
+		"tns:APMBenefitList": {
+			"additionalProperties": false,
+			"description": "A list of of APMbenefits.",
+			"properties": {
+				"tns:APMBenefit": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:APMBenefit"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:APMBenefit"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Account": {
+			"additionalProperties": false,
+			"description": "Account has an id and 0 or more billing plans.",
+			"properties": {
+				"tns:billingPlanList": {
+					"$ref": "#/definitions/tns:BillingPlanList"
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				}
+			},
+			"type": "object"
+		},
+		"tns:AccountList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of accounts. See the 'Account' complex type.",
+			"properties": {
+				"tns:Account": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Account"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Account"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Address": {
+			"additionalProperties": false,
+			"description": "A generic, back-end system independant representation of an address.",
+			"properties": {
+				"tns:country": {
+					"$ref": "#/definitions/tns:EntityAttribute"
+				},
+				"tns:countryOfResidence": {
+					"$ref": "#/definitions/tns:EntityAttribute"
+				},
+				"tns:homeCountry": {
+					"$ref": "#/definitions/tns:EntityAttribute"
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:line1": {
+					"$ref": "#/definitions/tns:stringMin3Max100CharType"
+				},
+				"tns:line2": {
+					"$ref": "#/definitions/tns:stringMin3Max100CharType"
+				},
+				"tns:line3": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:stringMin0Max40CharType"
+						}
+					]
+				},
+				"tns:line4": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:stringMin0Max40CharType"
+						}
+					]
+				},
+				"tns:line5": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:stringMin0Max40CharType"
+						}
+					]
+				},
+				"tns:postcode": {
+					"$ref": "#/definitions/tns:EntityAttribute"
+				}
+			},
+			"type": "object"
+		},
+		"tns:AddressList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of addresses. See the 'Address' complex type.",
+			"properties": {
+				"tns:Address": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Address"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Address"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Answer": {
+			"additionalProperties": false,
+			"properties": {
+				"tns:answer": {
+					"$ref": "#/definitions/xsd:string"
+				},
+				"tns:questionId": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:questionOrder": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				}
+			},
+			"required": [
+				"tns:answer",
+				"tns:questionId",
+				"tns:questionOrder"
+			],
+			"type": "object"
+		},
+		"tns:AnswerList": {
+			"additionalProperties": false,
+			"properties": {
+				"tns:Answer": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Answer"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Answer"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:AssociatedPartner": {
+			"additionalProperties": false,
+			"description": "This represents the list of associated partners returned and sent to the the PartnerMaintenance.quickContact operation.\n\nThe associated partners are the people at the same address as the partner used to for retrieving the information.\n\nThis extends the Partner base model.",
+			"properties": {
+				"tns:addressList": {
+					"$ref": "#/definitions/tns:AddressList"
+				},
+				"tns:associatedPolicies": {
+					"$ref": "#/definitions/tns:PolicyList"
+				},
+				"tns:change": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "\"Y\" indictates you want to update this persons current address information."
+				},
+				"tns:costCentre": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Optional cost centre value."
+				},
+				"tns:currentPolicies": {
+					"$ref": "#/definitions/tns:PolicyList"
+				},
+				"tns:dateOfBirth": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "Not all VHI customers have a recorded date of birth so we must make this optional."
+				},
+				"tns:documentationIndicator": {
+					"$ref": "#/definitions/tns:documentationIndicatorType"
+				},
+				"tns:emailAddress": {
+					"$ref": "#/definitions/tns:emailAddressType2"
+				},
+				"tns:embassy": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Optional cost centre value."
+				},
+				"tns:firstName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:fullName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:gender": {
+					"$ref": "#/definitions/tns:genderTypeIndicator"
+				},
+				"tns:homePhone": {
+					"$ref": "#/definitions/tns:phoneNumberType1"
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:isInsured": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:isPolicyHolder": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:lastName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:lcrDetails": {
+					"$ref": "#/definitions/tns:LCRDetails",
+					"description": "This is the result of the LCR calculator on the partner."
+				},
+				"tns:marketingPreferences": {
+					"$ref": "#/definitions/tns:marketingPreferencesType",
+					"description": "This indicates a customers marketing preferences. By default they will recieve\nmarketing on all channels. They can opt out of any or all by selecting the appropriate\ncombination below. Default is all (EMAIL_PHONE_POST)"
+				},
+				"tns:memberIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This optional indicator field indicates that the Insured Person is an existing member."
+				},
+				"tns:middleName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:mobilePhone": {
+					"$ref": "#/definitions/tns:phoneNumberType1"
+				},
+				"tns:policyNumber": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "This is the insured person's indicated policy reference."
+				},
+				"tns:ppsNumber": {
+					"$ref": "#/definitions/tns:ppsNumberType",
+					"description": "This is the customers pps number."
+				},
+				"tns:previousHealthInsurer": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "This is the customers previous Health Insurer."
+				},
+				"tns:previousMedicalCoverList": {
+					"$ref": "#/definitions/tns:PreviousMedicalCoverList",
+					"description": "A list of previous insurance / credit detail records."
+				},
+				"tns:primaryAddress": {
+					"$ref": "#/definitions/tns:Address"
+				},
+				"tns:primaryLocation": {
+					"$ref": "#/definitions/tns:PrimaryLocation",
+					"description": "This is the customers primary location for VHI International."
+				},
+				"tns:relationship": {
+					"$ref": "#/definitions/tns:relationshipTypeType",
+					"description": "This indicates if the person is a policy holder in their own right."
+				},
+				"tns:snapSendClaimInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Indicates if the partner is eligible for Snap and Send claiming."
+				},
+				"tns:staffNumber": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Optional staff number identifier."
+				},
+				"tns:studentDetail": {
+					"$ref": "#/definitions/tns:StudentDetail",
+					"description": "This indicates a customers marketing preferences. By default they will recieve\nmarketing on all channels. They can opt out of any or all by selecting the appropriate\ncombination below. Default is all (EMAIL_PHONE_POST)"
+				},
+				"tns:studentIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This optional indicator field indicates that the Insured Person is a student."
+				},
+				"tns:title": {
+					"$ref": "#/definitions/tns:EntityAttribute"
+				},
+				"tns:type": {
+					"$ref": "#/definitions/tns:partnerType",
+					"description": "This specifies what type of partner entity this is. The three types are FULL, PROSPECT and UNKNOWN. Each of these will have varying levels of content available.\nDefault is FULL."
+				},
+				"tns:vhiOnlineDoctorInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:workPhone": {
+					"$ref": "#/definitions/tns:phoneNumberType1"
+				}
+			},
+			"required": [
+				"tns:change",
+				"tns:isInsured",
+				"tns:isPolicyHolder"
+			],
+			"type": "object"
+		},
+		"tns:BillingPlan": {
+			"additionalProperties": false,
+			"description": "Billing plan has it's own ID and associated Payment information.",
+			"properties": {
+				"tns:current": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:nextInstAmount": {
+					"$ref": "#/definitions/tns:amountType"
+				},
+				"tns:nextInstDate": {
+					"$ref": "#/definitions/xsd:date"
+				},
+				"tns:paymentInformation": {
+					"$ref": "#/definitions/tns:PaymentInformation"
+				},
+				"tns:remainingInstallments": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				}
+			},
+			"type": "object"
+		},
+		"tns:BillingPlanList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of billing plans in an account. See the 'BillingPlan' complex type.",
+			"properties": {
+				"tns:BillingPlan": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:BillingPlan"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:BillingPlan"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:BuildInformation": {
+			"additionalProperties": false,
+			"description": "This complex type indicates all relevant ciboodle build information.",
+			"properties": {
+				"tns:buildDetail": {
+					"$ref": "#/definitions/tns:DisplayPropertyList",
+					"description": "This list of properties displays build details.\n\nWhen used in a service the service will search for all properties of format 'buildDetail.[propertyName]=[propertyValue]' and then expand the name so it can be displayed directly on screen.\n\nIt searches the ciboodle override properties file for a property 'build.detail.configfile=[path]' variable. This file is then used as the source of the information below. All properties prefixed with 'builddetail' in that file will be read, converted into a displayable format (providing camel case is used) and returned.\n\n\"Build Date\" and \"Build Label\" will always be returned even if there is no supporting build detail file. In these circumstances it will be derived from the system properties file.\n\nExamples might include :\n\n (i) \"buildDetail.builtBy=Stephen McGowan\" would be returned with name \"Built By\" and value \"Stephen McGowan\"\n\n (ii) \"buildDetail.comment=This is a build of online docs\" would be returned with name \"Comment\" and value \"This is a build of online docs\""
+				},
+				"tns:buildLabel": {
+					"$ref": "#/definitions/tns:buildLabelType",
+					"description": "All builds will have a specific label derived from either the build properties file if found or from the actual system properties if there is no build properties file.\n\nRestricts build labels to the appropriate format."
+				}
+			},
+			"required": [
+				"tns:buildDetail",
+				"tns:buildLabel"
+			],
+			"type": "object"
+		},
+		"tns:Category": {
+			"additionalProperties": false,
+			"description": "This type is used represent a group scheme category.....",
+			"properties": {
+				"tns:closedDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The date this category is closed."
+				},
+				"tns:costCentreFormat": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:costCentreLabel": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:costCentreMandatoryInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "The scheme reference\nas an integer."
+				},
+				"tns:memberRefMandatoryInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Indicating if the member reference must be supplied."
+				},
+				"tns:memberReferenceFormat": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:memberReferenceLabel": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The label for the member reference."
+				},
+				"tns:midTermAdjustment": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "if this is set to 'Y 'and an amendment is made to a group member policy, the individual must compensate financially themselves.... TBC"
+				},
+				"tns:name": {
+					"$ref": "#/definitions/tns:stringMin3Max100CharType"
+				},
+				"tns:newBusiness": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "If set to Y, new policies created for the scheme will be sent for group administratior approval......TBC"
+				},
+				"tns:productList": {
+					"$ref": "#/definitions/tns:ProductList",
+					"description": "The products available this scheme category"
+				},
+				"tns:token": {
+					"$ref": "#/definitions/tns:guidType"
+				},
+				"tns:webAvailableInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:webCategoryName": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "An external customer-friendly description of the scheme category."
+				},
+				"tns:webRenewalInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Online renewals enabled, subject to scheme renewal window dates."
+				}
+			},
+			"required": [
+				"tns:id"
+			],
+			"type": "object"
+		},
+		"tns:CategoryList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of group scheme categories. See the 'Category' complex type.",
+			"properties": {
+				"tns:Category": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Category"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Category"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Cohort": {
+			"additionalProperties": false,
+			"description": "Base on pre-defined policy and partner related information the company have came up with a list of customer demographics that are used to determine the best level of cover for particular contracts. These are know as 'Cohorts' and this is the entity used to represent them.",
+			"properties": {
+				"tns:code": {
+					"$ref": "#/definitions/tns:messageCodeType"
+				},
+				"tns:description": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:messageTextType"
+						}
+					]
+				},
+				"tns:messages": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:MessageList"
+						}
+					]
+				},
+				"tns:name": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:notes": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:messageTextType"
+						}
+					]
+				},
+				"tns:planList": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:PlanList"
+						}
+					]
+				},
+				"tns:policyId": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:uniqueIdentifierType"
+						}
+					]
+				}
+			},
+			"required": [
+				"tns:code",
+				"tns:name"
+			],
+			"type": "object"
+		},
+		"tns:CohortCalculation": {
+			"additionalProperties": false,
+			"description": "Every contract, current or potential, will have an associated Cohort. In addition to this, every existing contract will either exhibit a correct level of cover or an incorrect level of cover based on that cohort. This entity, is used to represent the cohort and whether or not the existing contract is \"Right Fit\" based on the cohort.",
+			"properties": {
+				"tns:cohort": {
+					"$ref": "#/definitions/tns:Cohort"
+				},
+				"tns:fitIndicator": {
+					"$ref": "#/definitions/xsd:string"
+				},
+				"tns:policyId": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:uniqueIdentifierType"
+						}
+					]
+				},
+				"tns:scriptMessage": {
+					"$ref": "#/definitions/xsd:string"
+				}
+			},
+			"required": [
+				"tns:cohort"
+			],
+			"type": "object"
+		},
+		"tns:CohortCalculationList": {
+			"additionalProperties": false,
+			"description": "REDUNDANT_TYPE - No longer required but keeping in case another use is found. This was originally used to return multiple cohorts per partner as it was thought that a partner could potentially have more than one cohort (i.e multiple polices, Travel, Core, Dental). it has been decided that for this delivery, this will not be the case and cohorts will have a one to one relationship with a partner.",
+			"properties": {
+				"tns:CohortCalculation": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:CohortCalculation"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:CohortCalculation"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:CoreCostBreakdown": {
+			"additionalProperties": false,
+			"description": "This represents the breakdown cost of a core policy transaction.\nThe breakdown for orepolicies is given per insured person.",
+			"properties": {
+				"tns:coverset": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The coverset name of the iunsured person. This may have changed during the movement."
+				},
+				"tns:deduction": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The amount deducted from the premium payers payslip for the insured person in question."
+				},
+				"tns:partnerName": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The name of the partner whose price the row signifies."
+				},
+				"tns:payment": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The amount left to pay for the insured person after deductions and subsidy."
+				},
+				"tns:subsidy": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The subsidy applied to the price for the insuredperson."
+				},
+				"tns:total": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The total amount payable for the person in question minus deductions and subsidies."
+				}
+			},
+			"required": [
+				"tns:coverset",
+				"tns:deduction",
+				"tns:partnerName",
+				"tns:payment",
+				"tns:subsidy",
+				"tns:total"
+			],
+			"type": "object"
+		},
+		"tns:CoreCostBreakdownList": {
+			"additionalProperties": false,
+			"description": "A list of core cost breakdowns.",
+			"properties": {
+				"tns:CoreCostBreakdown": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:CoreCostBreakdown"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:CoreCostBreakdown"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Cover": {
+			"additionalProperties": false,
+			"description": "This represents a level of cover. Each coverset can have zero or more covers. ",
+			"properties": {
+				"tns:code": {
+					"$ref": "#/definitions/tns:coversetCodeType",
+					"description": "Each cover has a unique cover code."
+				},
+				"tns:mandatory": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "For each coverset there are one or more levels of cover. Some covers are mandatory and come with the purchase of the coverset. Others are optional add-ons and can be purchased at the customer's descretion. i.e \"Winter Sports\""
+				},
+				"tns:name": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The name of the particular level of cover."
+				},
+				"tns:premium": {
+					"$ref": "#/definitions/tns:PremiumBreakdown",
+					"description": "Pricing relative to cover."
+				},
+				"tns:selected": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This flag is used to indicate to ciboodle that the cover is being selected or unselected."
+				}
+			},
+			"type": "object"
+		},
+		"tns:CoverList": {
+			"additionalProperties": false,
+			"description": "A list of of covers.",
+			"properties": {
+				"tns:Cover": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Cover"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Cover"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Coverset": {
+			"additionalProperties": false,
+			"description": "Represents a VHI coverset. i.e \"Couples Worldwide U65\"",
+			"properties": {
+				"tns:apmBenefitList": {
+					"$ref": "#/definitions/tns:APMBenefitList",
+					"description": "All list of APMBenefits may be returned."
+				},
+				"tns:code": {
+					"$ref": "#/definitions/tns:coversetCodeType",
+					"description": "All valid Policies will have a coverset code associated with them at policy level whether they are active or inactive.\n\nOne exception to this rule are policies that have not been taken up. These could be policies created on GIOS in error. In this case the coverset code returned will be \"NOT_TAKEN_UP\" and based on this the client can decide what to do with these policies."
+				},
+				"tns:coverList": {
+					"$ref": "#/definitions/tns:CoverList",
+					"description": "All coversets have a list of covers. Dependant on the particular service or the client request this may or may not be returned."
+				},
+				"tns:discount": {
+					"$ref": "#/definitions/tns:Discount",
+					"description": "Group schemes can have coverset level discounts."
+				},
+				"tns:keyBenefitList": {
+					"$ref": "#/definitions/tns:KeyBenefitList",
+					"description": "All list of key benefits may be returned."
+				},
+				"tns:name": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "All valid Policies will have an coverset associated with them at policy level whether they are active or inactive.\n\nOne exception to this rule are policies that have not been taken up. These could be policies created on GIOS in error. In this case the coverset returned by services will be \"Not Taken Up\" and based on this the client can decide what to do with these policies."
+				},
+				"tns:studentAgeLimit": {
+					"$ref": "#/definitions/tns:ageType"
+				}
+			},
+			"type": "object"
+		},
+		"tns:CoversetList": {
+			"additionalProperties": false,
+			"description": "A list of of coversets.",
+			"properties": {
+				"tns:Coverset": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Coverset"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Coverset"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:CtiRoutingInformation": {
+			"additionalProperties": false,
+			"description": "A look up is done by the Cisco CTI Routing to obtain data that \n\t\t\t\tallows the CTI to route the calls. This is the data returned to allow for that.",
+			"properties": {
+				"tns:customerLabel": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:isInvoice": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:queueIvrName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				}
+			},
+			"type": "object"
+		},
+		"tns:DirectDebit": {
+			"additionalProperties": false,
+			"description": "Represents the information captured when a customer chooses to pay by direct debit.",
+			"properties": {
+				"tns:address1": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Address1 of the Account Holder."
+				},
+				"tns:address2": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Address2 of the Account Holder."
+				},
+				"tns:authorised": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Whether the customer is authorised to allow Direct Debits to be applied to the account or not, as can be the case when both signatures are required for a joint account."
+				},
+				"tns:bic": {
+					"$ref": "#/definitions/tns:bankBicType",
+					"description": "BIC of the Account Holder."
+				},
+				"tns:county": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "County of the Account Holder."
+				},
+				"tns:dateOfSignature": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The date of signature."
+				},
+				"tns:firstName": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "First name of the Account holder."
+				},
+				"tns:iban": {
+					"$ref": "#/definitions/tns:bankIbanType",
+					"description": "IBAN of the Account Holder."
+				},
+				"tns:lastName": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Surname of the Account Holder."
+				},
+				"tns:title": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The title of the Account Holder."
+				},
+				"tns:town": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Town/City of the Account Holder."
+				}
+			},
+			"required": [
+				"tns:address1",
+				"tns:authorised",
+				"tns:bic",
+				"tns:county",
+				"tns:firstName",
+				"tns:iban",
+				"tns:lastName",
+				"tns:title",
+				"tns:town"
+			],
+			"type": "object"
+		},
+		"tns:Discount": {
+			"additionalProperties": false,
+			"description": "This is used to represent a.....",
+			"properties": {
+				"tns:percentage": {
+					"$ref": "#/definitions/tns:integerMin0Max100Type"
+				},
+				"tns:reason": {
+					"$ref": "#/definitions/tns:messageTextType"
+				}
+			},
+			"required": [
+				"tns:percentage",
+				"tns:reason"
+			],
+			"type": "object"
+		},
+		"tns:DisplayProperty": {
+			"additionalProperties": false,
+			"description": "This is used to return property names and values in a format that can be displayed straight on screen.",
+			"properties": {
+				"tns:name": {
+					"$ref": "#/definitions/tns:displayPropertyNameType",
+					"description": "The name of the property. If camel case was used space delimiting will be applied. The first character will also be converted to uppercase."
+				},
+				"tns:value": {
+					"$ref": "#/definitions/tns:textMessageTextType",
+					"description": "The value of the property is restricted to 160 characters."
+				}
+			},
+			"required": [
+				"tns:name",
+				"tns:value"
+			],
+			"type": "object"
+		},
+		"tns:DisplayPropertyList": {
+			"additionalProperties": false,
+			"description": "A list of properties that are used for display purposes. Usually sourced from configuration files.",
+			"properties": {
+				"tns:DisplayProperty": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:DisplayProperty"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:DisplayProperty"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:DropDownList": {
+			"additionalProperties": false,
+			"description": "This represents a level of cover. Each coverset can have zero or more covers. ",
+			"properties": {
+				"tns:code": {
+					"$ref": "#/definitions/tns:messageCodeType",
+					"description": "The code identifying the particular list of values."
+				},
+				"tns:list": {
+					"$ref": "#/definitions/tns:EntityAttributeList",
+					"description": "the list of vlaues corresponding to the code on the system identified."
+				},
+				"tns:system": {
+					"$ref": "#/definitions/tns:systemIdentifierType",
+					"description": "The system the list has come from."
+				}
+			},
+			"required": [
+				"tns:code",
+				"tns:list",
+				"tns:system"
+			],
+			"type": "object"
+		},
+		"tns:EmailIdentifier": {
+			"additionalProperties": false,
+			"description": "This entity is used to represent a mobile text message. It enforces certain message provider restrictions. It allows client applications to utilize the ciboodle SMS service.",
+			"properties": {
+				"tns:mvhEmailId": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "A unique identifier for the email record on the MyVHI database schema."
+				}
+			},
+			"type": "object"
+		},
+		"tns:EmailIdentifierList": {
+			"additionalProperties": false,
+			"description": "Allows a client to perform a bulk sending of SMS messages. See object 'SMSMessage'",
+			"properties": {
+				"tns:EmailIdentifier": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:EmailIdentifier"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:EmailIdentifier"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:EntityAttribute": {
+			"additionalProperties": false,
+			"description": "Within back-end VHI systems a lot of attributes tend to have an internal look-up value as well as a screen value for displaying to users. This type is used to represent this. An example would be postcodes. i.e Sligo (Screen value) SLIGO (Internal Value). ",
+			"properties": {
+				"tns:internalValue": {
+					"$ref": "#/definitions/tns:stringFormatType1"
+				},
+				"tns:screenValue": {
+					"$ref": "#/definitions/tns:objectNameType"
+				}
+			},
+			"type": "object"
+		},
+		"tns:EntityAttributeList": {
+			"additionalProperties": false,
+			"description": "Allows the webservice to return a list of entity attrbutes. This is mainly used for returning and accepting drop lists and drop down list selections.",
+			"properties": {
+				"tns:EntityAttribute": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:EntityAttribute"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:EntityAttribute"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:EnvironmentDetail": {
+			"additionalProperties": false,
+			"description": "This complex type contains a list of properties that denotes information about the environment. When requested from the 'environmentDetail' operations service",
+			"properties": {
+				"tns:buildInformation": {
+					"$ref": "#/definitions/tns:BuildInformation",
+					"description": "A complex type containing the related build information."
+				},
+				"tns:environmentProperties": {
+					"$ref": "#/definitions/tns:DisplayPropertyList",
+					"description": "This list of properties displays environment details.\n\nWhen used in a service the service will search for all properties of format 'environmentDetail.[propertyName]=[propertyValue]' and then expand the name so it can be displayed directly on screen.\n\nIt searches the ciboodle override properties file property 'environment.detail.configfile=[path]' variable. This file is then used as the source of the information below. All properties prefixed with 'environmentdetail' in that file will be read, converted into a displayable format (providing camel case is used) and returned.\n\n\"Environment Location\" will always be returned even if there is no supporting environment detail file. In these circumstances it will be derived from the system properties file.\n\nExamples might include :\n\n (i) \"environmentDetail.environmentOwner=Stephen McGowan\" would be returned with name \"Environment Owner\" and value \"Stephen McGowan\"\n\n (ii) \"environmentDetail.environmentName=Travel To Gios UAT\" would be returned with name \"Environment Name\" and value \"Travel To Gios UAT\"\n\n (iii) \"environmentDetail.environmentLocation=BLSYS219:6009\" would be returned with name \"Environment Location\" and value \"BLSYS219:6009\"\n\n (iv) \"environmentDetail.reservationPeriod=12/11/2010 to 15/12/2010\" would be returned with name \"Reservation Period\" and value \"12/11/2010 to 15/12/2010\""
+				},
+				"tns:subSystemList": {
+					"$ref": "#/definitions/tns:SubSystemList",
+					"description": "The list of systems the environment is connected to."
+				}
+			},
+			"required": [
+				"tns:buildInformation",
+				"tns:environmentProperties",
+				"tns:subSystemList"
+			],
+			"type": "object"
+		},
+		"tns:ExternalSystem": {
+			"additionalProperties": false,
+			"description": "In some cases, a specific application may have it's own specific requirements of a particular web-service. This token allows the client to specify which system they are, hence, which functionality they want to run server-side. In the future, this can also be used for auditing purposes so it is best practise to provide this where requested even if optional.",
+			"properties": {
+				"tns:code": {
+					"$ref": "#/definitions/tns:systemIdentifierType"
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:name": {
+					"$ref": "#/definitions/tns:objectNameType"
+				}
+			},
+			"required": [
+				"tns:code",
+				"tns:id",
+				"tns:name"
+			],
+			"type": "object"
+		},
+		"tns:FactFind": {
+			"additionalProperties": false,
+			"description": "This is used to represent a fact find performed on the web.\n\t\t\ti.e. The relevant effective date and the list of search IDs",
+			"properties": {
+				"tns:cohort": {
+					"$ref": "#/definitions/tns:apmCohortType",
+					"description": "The APM cohort."
+				},
+				"tns:coversetList": {
+					"$ref": "#/definitions/tns:CoversetList",
+					"description": "The covers that were returned to the customer from the fact find service."
+				},
+				"tns:effectiveDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "Effective date is a mandatory input"
+				},
+				"tns:factFindCohort": {
+					"$ref": "#/definitions/tns:InsuredPersonList",
+					"description": "The persons entered on the fact find data capture form."
+				},
+				"tns:searchCriteriaList": {
+					"$ref": "#/definitions/tns:EntityAttributeList",
+					"description": "An optional list which will link to benefits."
+				}
+			},
+			"required": [
+				"tns:cohort",
+				"tns:effectiveDate",
+				"tns:factFindCohort"
+			],
+			"type": "object"
+		},
+		"tns:HtmlDisplayPage": {
+			"additionalProperties": false,
+			"description": "This complex type contains rendered HTML that can be displayed in any client browser.\n\nThe type also contains a page name and a unique page code.",
+			"properties": {
+				"tns:pageCode": {
+					"$ref": "#/definitions/tns:messageCodeType"
+				},
+				"tns:pageData": {
+					"$ref": "#/definitions/tns:htmlDisplayPageDataType"
+				},
+				"tns:pageName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				}
+			},
+			"required": [
+				"tns:pageCode",
+				"tns:pageData",
+				"tns:pageName"
+			],
+			"type": "object"
+		},
+		"tns:InsuredPerson": {
+			"additionalProperties": false,
+			"description": "An InsuredPerson represents a partner that was or is insured on a policy. This person inherits all the traits of a GIOS 'Partner' but with additional traits that define an insured person such as, individual coverset, relationship to policy holder, lifestage and the dates they were covered between.",
+			"properties": {
+				"tns:addressList": {
+					"$ref": "#/definitions/tns:AddressList"
+				},
+				"tns:age": {
+					"$ref": "#/definitions/tns:ageType",
+					"description": "Can be used for direct input to Ratabase."
+				},
+				"tns:associatedPolicies": {
+					"$ref": "#/definitions/tns:PolicyList"
+				},
+				"tns:costCentre": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Optional cost centre value."
+				},
+				"tns:coverset": {
+					"$ref": "#/definitions/tns:Coverset",
+					"description": "The coverset of the insured person in question."
+				},
+				"tns:currentPolicies": {
+					"$ref": "#/definitions/tns:PolicyList"
+				},
+				"tns:dateOfBirth": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "Not all VHI customers have a recorded date of birth so we must make this optional."
+				},
+				"tns:documentationIndicator": {
+					"$ref": "#/definitions/tns:documentationIndicatorType"
+				},
+				"tns:emailAddress": {
+					"$ref": "#/definitions/tns:emailAddressType2"
+				},
+				"tns:embassy": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Optional cost centre value."
+				},
+				"tns:firstName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:fullName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:gender": {
+					"$ref": "#/definitions/tns:genderTypeIndicator"
+				},
+				"tns:homePhone": {
+					"$ref": "#/definitions/tns:phoneNumberType1"
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:insuredFrom": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "Date the partner was covered from."
+				},
+				"tns:insuredTo": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "Date the partner was covered until. If this is not specified the partner is still covered."
+				},
+				"tns:isPolicyHolderIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "An indicator which can be used to indicate that the insured person is the policy holder."
+				},
+				"tns:lastName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:lcrAge": {
+					"$ref": "#/definitions/tns:ageType",
+					"description": "The insured persons LCR Age stamped on the policy or quote."
+				},
+				"tns:lcrDetails": {
+					"$ref": "#/definitions/tns:LCRDetails",
+					"description": "This is the result of the LCR calculator on the partner."
+				},
+				"tns:lcrExemptionIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "The insured persons LCR exemption indicator stamped on the policy or quote."
+				},
+				"tns:lcrLoading": {
+					"$ref": "#/definitions/tns:lcrLoadingType",
+					"description": "The insured persons LCR loading percentage stamped on the policy or quote."
+				},
+				"tns:lifeStage": {
+					"$ref": "#/definitions/tns:lifeStageType",
+					"description": "Lifestage ADULT, STUDENT or CHILD"
+				},
+				"tns:marketingPreferences": {
+					"$ref": "#/definitions/tns:marketingPreferencesType",
+					"description": "This indicates a customers marketing preferences. By default they will recieve\nmarketing on all channels. They can opt out of any or all by selecting the appropriate\ncombination below. Default is all (EMAIL_PHONE_POST)"
+				},
+				"tns:memberIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This optional indicator field indicates that the Insured Person is an existing member."
+				},
+				"tns:membershipType": {
+					"$ref": "#/definitions/tns:membershipNameType",
+					"description": "Represents the membership type of the insured person on a group scheme category"
+				},
+				"tns:middleName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:mobilePhone": {
+					"$ref": "#/definitions/tns:phoneNumberType1"
+				},
+				"tns:overridingLcrRate": {
+					"$ref": "#/definitions/tns:lcrLoadingType",
+					"description": "The insured persons overriding LCR loading percentage, specified as an input."
+				},
+				"tns:personIdentifier": {
+					"$ref": "#/definitions/tns:uuidType",
+					"description": "A non-persisted java UUID to allow for an insured person to be traced in stateless transactions."
+				},
+				"tns:policyNumber": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "This is the insured person's indicated policy reference."
+				},
+				"tns:ppsNumber": {
+					"$ref": "#/definitions/tns:ppsNumberType",
+					"description": "This is the customers pps number."
+				},
+				"tns:premium": {
+					"$ref": "#/definitions/tns:PremiumBreakdown",
+					"description": "Pricing relative to insured partner."
+				},
+				"tns:previousHealthInsurer": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "This is the customers previous Health Insurer."
+				},
+				"tns:previousMedicalCoverList": {
+					"$ref": "#/definitions/tns:PreviousMedicalCoverList",
+					"description": "A list of previous insurance / credit detail records."
+				},
+				"tns:primaryAddress": {
+					"$ref": "#/definitions/tns:Address"
+				},
+				"tns:primaryLocation": {
+					"$ref": "#/definitions/tns:PrimaryLocation",
+					"description": "This is the customers primary location for VHI International."
+				},
+				"tns:relationship": {
+					"$ref": "#/definitions/tns:relationshipTypeType",
+					"description": "The insured persons relationship to the policy holder. This is not mandatory so may be blank.\n\nA blank relationship always occurs when the insured person is the policy holder as the policy holder will have no relationship to themselves."
+				},
+				"tns:removalReason": {
+					"$ref": "#/definitions/tns:EntityAttribute",
+					"description": "This indicates the reason a person became un-insured. It is also used to specify the reason for removing insured people during matinenance service invocations."
+				},
+				"tns:staffNumber": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Optional staff number identifier."
+				},
+				"tns:studentDetail": {
+					"$ref": "#/definitions/tns:StudentDetail",
+					"description": "This indicates a customers marketing preferences. By default they will recieve\nmarketing on all channels. They can opt out of any or all by selecting the appropriate\ncombination below. Default is all (EMAIL_PHONE_POST)"
+				},
+				"tns:studentIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This optional indicator field indicates that the Insured Person is a student."
+				},
+				"tns:studentSubsidyAvailableInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This indicator field can indicate that there are student subsidies available and this Insured Person would benefit\n\t\t\t\t\t\tfrom having student details added to avail of student subsidation."
+				},
+				"tns:title": {
+					"$ref": "#/definitions/tns:EntityAttribute"
+				},
+				"tns:type": {
+					"$ref": "#/definitions/tns:partnerType",
+					"description": "This specifies what type of partner entity this is. The three types are FULL, PROSPECT and UNKNOWN. Each of these will have varying levels of content available.\n\nDefault is FULL."
+				},
+				"tns:workPhone": {
+					"$ref": "#/definitions/tns:phoneNumberType1"
+				}
+			},
+			"type": "object"
+		},
+		"tns:InsuredPersonList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of addresses. See the 'Address' complex type.",
+			"properties": {
+				"tns:InsuredPerson": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:InsuredPerson"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:InsuredPerson"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:KeyBenefit": {
+			"additionalProperties": false,
+			"description": "Represents a Key Benefit\"",
+			"properties": {
+				"tns:cohort": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:coversetCode": {
+					"$ref": "#/definitions/tns:coversetCodeType"
+				},
+				"tns:coversetName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:geoCoverage": {
+					"$ref": "#/definitions/tns:stringFormatType1"
+				},
+				"tns:imageCode": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:priority": {
+					"$ref": "#/definitions/tns:integerMin0Max100Type"
+				},
+				"tns:product": {
+					"$ref": "#/definitions/tns:policyTypeType"
+				},
+				"tns:sectionContent": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:sectionHeading": {
+					"$ref": "#/definitions/tns:objectNameType"
+				}
+			},
+			"type": "object"
+		},
+		"tns:KeyBenefitList": {
+			"additionalProperties": false,
+			"description": "A list of of key benefits.",
+			"properties": {
+				"tns:KeyBenefit": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:KeyBenefit"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:KeyBenefit"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:LCRDetails": {
+			"additionalProperties": false,
+			"description": "A representation of the results of the LCR Calculator.",
+			"properties": {
+				"tns:age": {
+					"$ref": "#/definitions/tns:ageType",
+					"description": "The partner's actual age."
+				},
+				"tns:creditMonths": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "The partner's credit period in months."
+				},
+				"tns:exemptionIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "The partner's LCR exemption status."
+				},
+				"tns:lcrAge": {
+					"$ref": "#/definitions/tns:ageType",
+					"description": "The partner's LCR age if calculable."
+				},
+				"tns:loadingPercent": {
+					"$ref": "#/definitions/tns:lcrLoadingType",
+					"description": "The partner's LCR loading rate."
+				},
+				"tns:unemploymentMonths": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "The partner's unemployment months."
+				}
+			},
+			"type": "object"
+		},
+		"tns:LogCategory": {
+			"additionalProperties": false,
+			"description": "This represents everything required from the contact history service in order to write a log to CSS and ciboodle.",
+			"properties": {
+				"tns:callResolvedIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This indicates wthere or not the customer interaction has been resolved."
+				},
+				"tns:categoryCode": {
+					"$ref": "#/definitions/tns:categoryCodeType",
+					"description": "Every log type has a classCode, a categoryCode and a subCategory code. Each of these must be provided.\n\nThis signifies the categoryCode."
+				},
+				"tns:categorylevel": {
+					"$ref": "#/definitions/tns:categoryLevelType",
+					"description": "Customers can be calling to give Compliment, Complaint or Other. This field signifies this."
+				},
+				"tns:classCode": {
+					"$ref": "#/definitions/tns:categoryCodeType",
+					"description": "Every log type has a classCode, a categoryCode and a subCategory code. Each of these must be provided.\n\nThis signifies the classCode.\n"
+				},
+				"tns:comment": {
+					"$ref": "#/definitions/tns:logCommentType",
+					"description": "A free text comment that can be up to 1950 characters in length."
+				},
+				"tns:firstCallIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This indicates wther or not this customer call is a follow up call."
+				},
+				"tns:partnerId": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "All logs to CSS and ciboodle are also associated with a particular partner. This must be provided on invocation.\n\nThe service will use the id provided to extract all the partner information needed from GIOS i.e. Address, Name etc.."
+				},
+				"tns:policyId": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "All logs to CSS and ciboodle are against policies. This must be provided on invocation.\n\nThe service will use the id provided to extract all of the required policy related information from GIOS."
+				},
+				"tns:reassignUser": {
+					"$ref": "#/definitions/tns:usernameType",
+					"description": "When logging within ciboode you have the capability to reassign to a particualr user. Providing the username of the user you want toreassign to will send a reassing email to that person and update the log in Ciboodle and CSS accordingly."
+				},
+				"tns:satisfactionLevel": {
+					"$ref": "#/definitions/tns:satisfactionLevelType",
+					"description": "Each log requires an associated customer satisfaction level indicator."
+				},
+				"tns:subCategoryCode": {
+					"$ref": "#/definitions/tns:categoryCodeType",
+					"description": "Every log type has a classCode, a categoryCode and a subCategory code. Each of these must be provided.\n\nThis signifies the subCategoryCode."
+				},
+				"tns:user": {
+					"$ref": "#/definitions/tns:usernameType",
+					"description": "The username of the person logging to CSS and ciboodle."
+				}
+			},
+			"required": [
+				"tns:callResolvedIndicator",
+				"tns:categoryCode",
+				"tns:categorylevel",
+				"tns:classCode",
+				"tns:firstCallIndicator",
+				"tns:satisfactionLevel",
+				"tns:subCategoryCode",
+				"tns:user"
+			],
+			"type": "object"
+		},
+		"tns:LogCategoryList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of plans. See the 'Plan' complex type. The 'ProductProposal' service recommends the best fit products based on the cohort for a given policy (or set of people representing a potential policy). It uses this entity to represent these products to the client.",
+			"properties": {
+				"tns:LogCategory": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:LogCategory"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:LogCategory"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Message": {
+			"additionalProperties": false,
+			"description": "A simple object used to return various application messages to the front-end application. These can be associated with any entity i.e Plan (Plan specific messages) and Cohort (Cohort specific messages).",
+			"properties": {
+				"tns:message": {
+					"$ref": "#/definitions/tns:messageTextType"
+				}
+			},
+			"required": [
+				"tns:message"
+			],
+			"type": "object"
+		},
+		"tns:MessageList": {
+			"additionalProperties": false,
+			"description": "Allows the webservice to return a list of application messages. See the 'Message' complex type.",
+			"properties": {
+				"tns:Message": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Message"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Message"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Partner": {
+			"additionalProperties": false,
+			"description": "An 'Individual' GIOS customer representation.",
+			"properties": {
+				"tns:addressList": {
+					"$ref": "#/definitions/tns:AddressList"
+				},
+				"tns:associatedPolicies": {
+					"$ref": "#/definitions/tns:PolicyList"
+				},
+				"tns:costCentre": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Optional cost centre value."
+				},
+				"tns:currentPolicies": {
+					"$ref": "#/definitions/tns:PolicyList"
+				},
+				"tns:dateOfBirth": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "Not all VHI customers have a recorded date of birth so we must make this optional."
+				},
+				"tns:documentationIndicator": {
+					"$ref": "#/definitions/tns:documentationIndicatorType"
+				},
+				"tns:emailAddress": {
+					"$ref": "#/definitions/tns:emailAddressType2"
+				},
+				"tns:embassy": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Optional cost centre value."
+				},
+				"tns:firstName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:fullName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:gender": {
+					"$ref": "#/definitions/tns:genderTypeIndicator"
+				},
+				"tns:homePhone": {
+					"$ref": "#/definitions/tns:phoneNumberType1"
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:lastName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:lcrDetails": {
+					"$ref": "#/definitions/tns:LCRDetails",
+					"description": "This is the result of the LCR calculator on the partner."
+				},
+				"tns:marketingPreferences": {
+					"$ref": "#/definitions/tns:marketingPreferencesType",
+					"description": "This indicates a customers marketing preferences. By default they will recieve\nmarketing on all channels. They can opt out of any or all by selecting the appropriate\ncombination below. Default is all (EMAIL_PHONE_POST)"
+				},
+				"tns:memberIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This optional indicator field indicates that the Insured Person is an existing member."
+				},
+				"tns:middleName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:mobilePhone": {
+					"$ref": "#/definitions/tns:phoneNumberType1"
+				},
+				"tns:policyNumber": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "This is the insured person's indicated policy reference."
+				},
+				"tns:ppsNumber": {
+					"$ref": "#/definitions/tns:ppsNumberType",
+					"description": "This is the customers pps number."
+				},
+				"tns:previousHealthInsurer": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "This is the customers previous Health Insurer."
+				},
+				"tns:previousMedicalCoverList": {
+					"$ref": "#/definitions/tns:PreviousMedicalCoverList",
+					"description": "A list of previous insurance / credit detail records."
+				},
+				"tns:primaryAddress": {
+					"$ref": "#/definitions/tns:Address"
+				},
+				"tns:primaryLocation": {
+					"$ref": "#/definitions/tns:PrimaryLocation",
+					"description": "This is the customers primary location for VHI International."
+				},
+				"tns:snapSendClaimInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Indicates if the partner is eligible for Snap and Send claiming."
+				},
+				"tns:staffNumber": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Optional staff number identifier."
+				},
+				"tns:studentDetail": {
+					"$ref": "#/definitions/tns:StudentDetail",
+					"description": "This indicates a customers marketing preferences. By default they will recieve\nmarketing on all channels. They can opt out of any or all by selecting the appropriate\ncombination below. Default is all (EMAIL_PHONE_POST)"
+				},
+				"tns:studentIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This optional indicator field indicates that the Insured Person is a student."
+				},
+				"tns:title": {
+					"$ref": "#/definitions/tns:EntityAttribute"
+				},
+				"tns:type": {
+					"$ref": "#/definitions/tns:partnerType",
+					"description": "This specifies what type of partner entity this is. The three types are FULL, PROSPECT and UNKNOWN. Each of these will have varying levels of content available.\nDefault is FULL."
+				},
+				"tns:vhiOnlineDoctorInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:workPhone": {
+					"$ref": "#/definitions/tns:phoneNumberType1"
+				}
+			},
+			"type": "object"
+		},
+		"tns:PartnerDetail": {
+			"additionalProperties": false,
+			"description": "A light-weight representation of a potential customer used to drive cohort determination for new policies. This is used primarily for online product proposals and new policy product proposals.",
+			"properties": {
+				"tns:age": {
+					"$ref": "#/definitions/tns:ageType"
+				},
+				"tns:gender": {
+					"$ref": "#/definitions/tns:genderTypeIndicator"
+				},
+				"tns:partnerId": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:policyHolder": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:student": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				}
+			},
+			"type": "object"
+		},
+		"tns:PartnerDetailList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to accept a list of potential customers (minimal data) See the 'PartnerDetail' complex type.",
+			"properties": {
+				"tns:PartnerDetail": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:PartnerDetail"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:PartnerDetail"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:PartnerList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of addresses. See the 'Address' complex type.",
+			"properties": {
+				"tns:Partner": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Partner"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Partner"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:PaymentInformation": {
+			"additionalProperties": false,
+			"description": "Contains all information required for purchasing a new policy or amending a current policy.",
+			"properties": {
+				"tns:billingFrequency": {
+					"$ref": "#/definitions/tns:billingFrequencyType",
+					"description": "Dependant on the billing method, the customer can choose different billing frequencies. For \"Invoice\" the options are \"Half Yearly\" and \"Yearly\". For \"Direct Debit \\ Credit or Debit Card\" the customer can also opt for \"Monthly\" or \"Quarterly\"."
+				},
+				"tns:paymentMethod": {
+					"$ref": "#/definitions/tns:PaymentMethod",
+					"description": "The method of payment the customer has opted for."
+				},
+				"tns:serverTransactionId": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The Server Transaction ID for Payment"
+				}
+			},
+			"required": [
+				"tns:paymentMethod"
+			],
+			"type": "object"
+		},
+		"tns:PaymentMethod": {
+			"additionalProperties": false,
+			"description": "The method of payment the customer has opted for.",
+			"properties": {
+				"tns:accountName": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The account holder in the case of direct debits and the name as it appears on the card in the case of card transactions."
+				},
+				"tns:accountNumber": {
+					"$ref": "#/definitions/tns:accountNumberType",
+					"description": "If the payment method type is of \"DEBIT_CREDIT_CARD\" an account number must be supplied. "
+				},
+				"tns:bic": {
+					"$ref": "#/definitions/tns:bankBicType",
+					"description": "If the type is direct debit you must suppy a BIC (Business Identifier Code)."
+				},
+				"tns:cardType": {
+					"$ref": "#/definitions/tns:bankCardType",
+					"description": "If the payment method type is \"DEBIT_CREDIT_CARD\" the card type is mandatory."
+				},
+				"tns:cv2": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:cv2Type"
+						}
+					],
+					"description": "This allows the user capture the cv2 number for credit \\ debit cards."
+				},
+				"tns:dateOfSignature": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The date of signature."
+				},
+				"tns:directDebit": {
+					"$ref": "#/definitions/tns:DirectDebit",
+					"description": "Optional complex type to contain details when a customer chooses to pay via direct debit."
+				},
+				"tns:expiryDate": {
+					"$ref": "#/definitions/tns:expiryDateType",
+					"description": "This allows the user capture the expiry date for credit \\ debit cards."
+				},
+				"tns:iban": {
+					"$ref": "#/definitions/tns:bankIbanType",
+					"description": "If the payment method type is of \"DIRECT_DEBIT\" an IBAN (International Bank Account Number) must be supplied. "
+				},
+				"tns:salaryDeduction": {
+					"$ref": "#/definitions/tns:SalaryDeduction",
+					"description": "Optional complex type to contain details when a custome chooses to pay via salary deduction."
+				},
+				"tns:saveChangedDetails": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Denotes whether or not a change to the card / account details should be saved to GIOS. This should be Y for saving the change of N for not. Default is to N if not present."
+				},
+				"tns:type": {
+					"$ref": "#/definitions/tns:paymentMethodType",
+					"description": "The type of payment method. The default is \"Direct Debit\" | \"Debit\\Credit Card\" | \"Invoice\""
+				}
+			},
+			"required": [
+				"tns:type"
+			],
+			"type": "object"
+		},
+		"tns:Plan": {
+			"additionalProperties": false,
+			"description": "This correlates with the level of cover associated with a particular policy/quote. It can also be viewed more generically as a vhi product type.",
+			"properties": {
+				"tns:coversetCode": {
+					"$ref": "#/definitions/tns:coversetCodeType"
+				},
+				"tns:messages": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:MessageList"
+						}
+					]
+				},
+				"tns:nrcProductCode": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:uniqueIdentifierType"
+						}
+					]
+				},
+				"tns:nrcSubProductCode": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:uniqueIdentifierType"
+						}
+					]
+				},
+				"tns:planName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:planScreenName": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:objectNameType"
+						}
+					]
+				},
+				"tns:planType": {
+					"$ref": "#/definitions/tns:PlanType"
+				},
+				"tns:precedence": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:uniqueIdentifierType"
+						}
+					]
+				},
+				"tns:quotePrice": {
+					"$ref": "#/definitions/tns:QuotePrice"
+				}
+			},
+			"required": [
+				"tns:coversetCode",
+				"tns:planName",
+				"tns:planType"
+			],
+			"type": "object"
+		},
+		"tns:PlanList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of plans. See the 'Plan' complex type. The 'ProductProposal' service recommends the best fit products based on the cohort for a given policy (or set of people representing a potential policy). It uses this entity to represent these products to the client.",
+			"properties": {
+				"tns:Plan": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Plan"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Plan"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:PlanPrecedence": {
+			"additionalProperties": false,
+			"description": "NOT IN USE :: A plan may have a specific order of importance per client application. This signifies that importance.",
+			"properties": {
+				"tns:planId": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:precedence": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:systemIdentifier": {
+					"$ref": "#/definitions/tns:ExternalSystem"
+				}
+			},
+			"required": [
+				"tns:planId",
+				"tns:precedence"
+			],
+			"type": "object"
+		},
+		"tns:PlanPrecedenceList": {
+			"additionalProperties": false,
+			"description": "NOT IN USE :: This is a list PlanPrecendence objects. This is usually attached to a plan and gives the client the plan importance for all registered client applications.",
+			"properties": {
+				"tns:PlanPrecedence": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:PlanPrecedence"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:PlanPrecedence"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:PlanType": {
+			"additionalProperties": false,
+			"description": "When a product recommendation is given, a list of recommended plans are returned. Each of these plans will have an associated plan type configurable per calling system. Common plan types include 'Best Fit' and 'Price Sensitive'. This entity represents that type attribute.",
+			"properties": {
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:planTypeName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				}
+			},
+			"required": [
+				"tns:id",
+				"tns:planTypeName"
+			],
+			"type": "object"
+		},
+		"tns:Policy": {
+			"additionalProperties": false,
+			"description": "This type is used to represent any health insurance policy.",
+			"properties": {
+				"tns:accountList": {
+					"$ref": "#/definitions/tns:AccountList",
+					"description": "This represents the list of customer accounts linked to this contract."
+				},
+				"tns:category": {
+					"$ref": "#/definitions/tns:Category",
+					"description": "The category of the scheme to which the policy holder belongs."
+				},
+				"tns:coolOffDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "This is the cool off date for the policy in question. This is only applicable to travel policies (I think)."
+				},
+				"tns:coverset": {
+					"$ref": "#/definitions/tns:Coverset",
+					"description": "The coverset of the policy in question."
+				},
+				"tns:customPolProcIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Custom Policy Processing Indicator. Typically Indicates that auto migration has occurred on this policy."
+				},
+				"tns:dynamicDaysAfterRenewal": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "This is the number of days configured in Ciboodle which can be used to determine if a policy is on or off renewal."
+				},
+				"tns:dynamicDaysBeforeRenewal": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "This is the number of days configured in Ciboodle which can be used to determine if a policy is on or off renewal."
+				},
+				"tns:endDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "No active policy will have an end date. All inactive (\"Cancelled\", \"Not Taken Up\") policies will have an end date signifying the date the contract expired."
+				},
+				"tns:endOfTermAction": {
+					"$ref": "#/definitions/tns:endOfTermActionType",
+					"description": "What action to take at the time of policy renewal. The supported options are to maunally renew or to renew automatically."
+				},
+				"tns:endOfTermActivity": {
+					"$ref": "#/definitions/tns:endOfTermActivityType",
+					"description": "This denotes what action will be carried out on the policy by the underlying insurance system at renewal. Possibe actions are :\n\n(i) Lapse\n(ii) Reminder\n(iii) Notify"
+				},
+				"tns:factFindIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Indicates if a fact find has been completed for this policy."
+				},
+				"tns:failedToRenewIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Indicates if this policy has renewed."
+				},
+				"tns:geographicalCoverage": {
+					"$ref": "#/definitions/tns:EntityAttribute",
+					"description": "This gives the geographichal coverage. only applicable to Global policies."
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "This is the policy reference without leading zeroes."
+				},
+				"tns:lockedInWIPIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Indicates if the policy is currently locked in WIP which may impact some transactions against the policy."
+				},
+				"tns:medicalNeedsIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Indicates if the policy is flagged for Medical Needs."
+				},
+				"tns:partnerList": {
+					"$ref": "#/definitions/tns:InsuredPersonList",
+					"description": "This represents the list of partners linked to this contract. This includes all partners, currently and previously insured on the contract.\n\nthe policy holder will be the first person listed."
+				},
+				"tns:policyHolder": {
+					"$ref": "#/definitions/tns:Partner",
+					"description": "This insured person is the policy holder for this policy."
+				},
+				"tns:policyRenewedIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Indicates if this policy failed to renew."
+				},
+				"tns:premium": {
+					"$ref": "#/definitions/tns:PremiumBreakdown",
+					"description": "Pricing relative to quote."
+				},
+				"tns:projectedEndDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "A set amount of time before a policy is due to \"Lapse\" a renewal reminder notice is sent out to the customer telling them to renew their policy or to create an new policy.\n\nThis date shows the date the policy will \"Lapse\". Providing the effective date of the new contract is on or after this date the customer should be allowed to take out a seond policy. "
+				},
+				"tns:regressionCutOffDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The earliest date that a change can be effected on that would not result in a regression."
+				},
+				"tns:renewalDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "Most contracts will have a renewal date generated at the time of creation. This renewal date signifies the contract end of term."
+				},
+				"tns:scheme": {
+					"$ref": "#/definitions/tns:Scheme",
+					"description": "If this policy is associated with a scheme the details will be populated here."
+				},
+				"tns:startDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "All policies will have a start date."
+				},
+				"tns:termEndDate": {
+					"$ref": "#/definitions/xsd:date"
+				},
+				"tns:termStartDate": {
+					"$ref": "#/definitions/xsd:date"
+				},
+				"tns:type": {
+					"$ref": "#/definitions/tns:policyTypeType",
+					"description": "This indicator will indicate to the client the type of policy the record is representative of. See simple type 'policyTypeType' for a list of possible types."
+				},
+				"tns:webRenewalEndDate": {
+					"$ref": "#/definitions/xsd:date"
+				},
+				"tns:webRenewalStartDate": {
+					"$ref": "#/definitions/xsd:date"
+				}
+			},
+			"type": "object"
+		},
+		"tns:PolicyList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of policies. See the 'Policy' complex type.",
+			"properties": {
+				"tns:Policy": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Policy"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Policy"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:PolicyRating": {
+			"additionalProperties": false,
+			"description": "This represents the cost of a core policy transaction.",
+			"properties": {
+				"tns:amendmentCostCore": {
+					"$ref": "#/definitions/tns:CoreCostBreakdownList",
+					"description": "This will provide the pricing breakdown post changes for any non-Travel product contracts."
+				},
+				"tns:amendmentCostTravel": {
+					"$ref": "#/definitions/tns:TravelCostBreakdownList",
+					"description": "This will provide the pricing breakdown post changes for any Travel product contracts."
+				},
+				"tns:currentCostCore": {
+					"$ref": "#/definitions/tns:CoreCostBreakdownList",
+					"description": "This will provide the current pricing breakdown for any non-Travel product contracts."
+				},
+				"tns:currentCostTravel": {
+					"$ref": "#/definitions/tns:TravelCostBreakdownList",
+					"description": "This will provide the pricing breakdown post changes for any Travel product contracts."
+				},
+				"tns:paymentRequired": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Some schemes are fully subsidised\nfor particular cover selections. This flag will be set to \"N\" in those circumstances meaning no payment is required.\nIf payment is required this will be set to \"Y\" "
+				},
+				"tns:totalCost": {
+					"$ref": "#/definitions/tns:TotalCostBreakdownList",
+					"description": "This will provide all totals for the transaction in question."
+				}
+			},
+			"required": [
+				"tns:paymentRequired",
+				"tns:totalCost"
+			],
+			"type": "object"
+		},
+		"tns:PremiumBreakdown": {
+			"additionalProperties": false,
+			"description": "This presents a breakdown of costs pertaining to the entity it is associated with.",
+			"properties": {
+				"tns:discount": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The total discount."
+				},
+				"tns:discountLoyalty": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The discount amount attributable to loyalty."
+				},
+				"tns:discountOnline": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The discount amount attributable to any intrinsic online discount."
+				},
+				"tns:discountPayment": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The discount amount attributable to upfront payment."
+				},
+				"tns:grossPremium": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The gross full price."
+				},
+				"tns:grossSubsidy": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The gross subsidy on total cost relevant to scheme."
+				},
+				"tns:lcrAmount": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The LCR amount."
+				},
+				"tns:netDeduction": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The deduction."
+				},
+				"tns:netPayment": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The amount payable."
+				},
+				"tns:netSubsidy": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The subsidy on total cost relevant to scheme."
+				},
+				"tns:nettPremium": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The nett subsidy plus the deduction plus the payment."
+				},
+				"tns:taxRelief": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The tax relief."
+				}
+			},
+			"type": "object"
+		},
+		"tns:PreviousMedicalCover": {
+			"additionalProperties": false,
+			"description": "A Previous Insurer record or a Credit Period record used in determining LCR credits.",
+			"properties": {
+				"tns:customerName": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "For Previous Insurance types, the other surname which may be applicable."
+				},
+				"tns:customerReference": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "For Previous Insurance types, the previous policy/reference."
+				},
+				"tns:declarationDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "Date record was declared."
+				},
+				"tns:effectiveFromDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "Date record is effective from."
+				},
+				"tns:effectiveToDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "Date record is effective to."
+				},
+				"tns:insProvider": {
+					"$ref": "#/definitions/tns:EntityAttribute",
+					"description": "For Previous Insurance types, the Previous Insurer."
+				},
+				"tns:insProviderCoverset": {
+					"$ref": "#/definitions/tns:EntityAttribute",
+					"description": "For Previous Insurance types, the Previous Insurer's Product's Coverset."
+				},
+				"tns:insProviderProduct": {
+					"$ref": "#/definitions/tns:EntityAttribute",
+					"description": "For Previous Insurance types, the Previous Insurer's Product."
+				},
+				"tns:lcrCreditMonths": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "A duration for the record in months."
+				},
+				"tns:lcrExemptionIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "An exemption indicator."
+				},
+				"tns:lcrLoadingPercent": {
+					"$ref": "#/definitions/tns:lcrLoadingType",
+					"description": "An (overriding) LCR rate."
+				},
+				"tns:lcrUnemploymentMonths": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "A duration for an unemployment record in months."
+				},
+				"tns:partnerId": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "Optional partner identifier."
+				},
+				"tns:previousMedicalNo": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "Sequence number identifier."
+				},
+				"tns:recordType": {
+					"$ref": "#/definitions/tns:pmcRecordTypeType",
+					"description": "Specifies the type of record, corresponding with Previous Insurance, Non-Residence or Unemployment."
+				}
+			},
+			"required": [
+				"tns:recordType"
+			],
+			"type": "object"
+		},
+		"tns:PreviousMedicalCoverList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of Previous Medical Covers. See the 'PreviousMedicalCover' complex type.",
+			"properties": {
+				"tns:PreviousMedicalCover": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:PreviousMedicalCover"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:PreviousMedicalCover"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:PrimaryLocation": {
+			"additionalProperties": false,
+			"description": "Represents the information captured when a customer chooses to pay by salary deduction",
+			"properties": {
+				"tns:country": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The country chosen if based in one counrty is selected."
+				},
+				"tns:reasonForTraveling": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The given reason for traveling."
+				},
+				"tns:tripType": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Description of trip type, e.g. Based in one country, moving from country to country."
+				}
+			},
+			"required": [
+				"tns:reasonForTraveling",
+				"tns:tripType"
+			],
+			"type": "object"
+		},
+		"tns:Product": {
+			"additionalProperties": false,
+			"description": "This is used to represent a product that is available to a group scheme category.",
+			"properties": {
+				"tns:categoryId": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "The category ID."
+				},
+				"tns:childAgeLimit": {
+					"$ref": "#/definitions/tns:ageType",
+					"description": "Age limit for a child, up to and including."
+				},
+				"tns:fromDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The date this product is available from for the group scheme category."
+				},
+				"tns:insuranceProduct": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The insurance product."
+				},
+				"tns:name": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:productVersion": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "The insurance product version."
+				},
+				"tns:profileList": {
+					"$ref": "#/definitions/tns:ProfileList",
+					"description": "The membership types that can avail of this product for a given group scheme category."
+				},
+				"tns:subsidyAvailableIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:subsidyBasis": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The subsidisation model for the product."
+				},
+				"tns:toDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The date this product is available until for the group scheme category."
+				},
+				"tns:versionNo": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "The version number of the insurance product."
+				}
+			},
+			"required": [
+				"tns:name"
+			],
+			"type": "object"
+		},
+		"tns:ProductList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of group scheme categories. See the 'Category' complex type.",
+			"properties": {
+				"tns:Product": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Product"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Product"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Profile": {
+			"additionalProperties": false,
+			"description": "This is used to represent a membership type for a particular \ngroup scheme category.",
+			"properties": {
+				"tns:coversetList": {
+					"$ref": "#/definitions/tns:CoversetList",
+					"description": "The coversets available to this group scheme category membership."
+				},
+				"tns:lcrSubsidyIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Indicates if the scheme subsidises the LCR portion"
+				},
+				"tns:membership": {
+					"$ref": "#/definitions/tns:membershipNameType"
+				},
+				"tns:recover": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:relationshipList": {
+					"$ref": "#/definitions/tns:RelationshipList",
+					"description": "The various relationships the profile is applicable to."
+				},
+				"tns:subsidyList": {
+					"$ref": "#/definitions/tns:SubsidyList",
+					"description": "The subsidies available to this group scheme category membership."
+				}
+			},
+			"required": [
+				"tns:membership",
+				"tns:recover"
+			],
+			"type": "object"
+		},
+		"tns:ProfileList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of group scheme categories. See the 'Category' complex type.",
+			"properties": {
+				"tns:Profile": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Profile"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Profile"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Questionnaire": {
+			"additionalProperties": false,
+			"properties": {
+				"tns:answers": {
+					"$ref": "#/definitions/tns:AnswerList"
+				},
+				"tns:interactionId": {
+					"$ref": "#/definitions/tns:guidType"
+				},
+				"tns:interactionType": {
+					"$ref": "#/definitions/xsd:string"
+				}
+			},
+			"required": [
+				"tns:answers"
+			],
+			"type": "object"
+		},
+		"tns:Quote": {
+			"additionalProperties": false,
+			"description": "This is used to represent all quotes.",
+			"properties": {
+				"tns:activelySavedIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This optional indicator field indicates that the quote was actively saved by the member rather than passively saved via a session timeout."
+				},
+				"tns:category": {
+					"$ref": "#/definitions/tns:Category",
+					"description": "The category of the scheme to which the policy holder belongs."
+				},
+				"tns:coverset": {
+					"$ref": "#/definitions/tns:Coverset",
+					"description": "The coverset of the quote in question."
+				},
+				"tns:coversetList": {
+					"$ref": "#/definitions/tns:CoversetList",
+					"description": "To facilitate multi-quotes, a quote request may contain a coversetList.\n\t\t\t\t\tA quote will be generated for each coverset in the list using the supplied partner list."
+				},
+				"tns:createdDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The date the quote was created on."
+				},
+				"tns:endDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The date the quote expired on or will expire on."
+				},
+				"tns:enhancedCoverIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This optional indicator field indicates that an enhanced level of cover is desired from the plan selector funnel."
+				},
+				"tns:factFindIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Indicates if a fact find has been completed for this quote."
+				},
+				"tns:geographicalCoverage": {
+					"$ref": "#/definitions/tns:EntityAttribute",
+					"description": "This gives the geograpichal coverage. only applicable to Global policies."
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "This is the quote reference withut leading zeroes."
+				},
+				"tns:issuedDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The date the quote was issued."
+				},
+				"tns:partnerList": {
+					"$ref": "#/definitions/tns:InsuredPersonList",
+					"description": "This represents the list of partners linked to this contract. This includes all partners, currently and previously insured on the contract. it also includes unknown insured and prospects.\n\nThe policy holder, quote holder or prospect will be the first person listed."
+				},
+				"tns:premium": {
+					"$ref": "#/definitions/tns:PremiumBreakdown",
+					"description": "Pricing relative to quote."
+				},
+				"tns:product": {
+					"$ref": "#/definitions/tns:productTypeType",
+					"description": "This indicator will indicate to the client the type of product. See simple type 'productTypeType' for a list of possible types."
+				},
+				"tns:prospect": {
+					"$ref": "#/definitions/tns:Partner",
+					"description": "This partner is the prospective customer for this quote. This is in the case of quick quotes."
+				},
+				"tns:quoteCohortRank": {
+					"$ref": "#/definitions/tns:quoteCohortHierarchyType",
+					"description": "For selector quotes, this specifies the rank of this quote within the cohort hierarchy."
+				},
+				"tns:quoteHolder": {
+					"$ref": "#/definitions/tns:Partner",
+					"description": "This partner is the quote holder for this policy."
+				},
+				"tns:ratingStatus": {
+					"$ref": "#/definitions/tns:ratingStatusType",
+					"description": "The rating staus of the quote."
+				},
+				"tns:scheme": {
+					"$ref": "#/definitions/tns:Scheme",
+					"description": "If this policy is associated with a scheme the details will be populated here."
+				},
+				"tns:startDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The effective date of the transaction. Can be the 01, 08, 15 or 22 day of the month. If not specified the next effective date from the current system date is automaticall chosen by the system."
+				},
+				"tns:status": {
+					"$ref": "#/definitions/tns:quoteStatusType",
+					"description": "This will indicate the status of the quote if it has been created already."
+				},
+				"tns:termEndDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "For a group scheme quote, the term may not be one full year (prorated). This is the scheme's policy renewal date beyond the effective date"
+				},
+				"tns:type": {
+					"$ref": "#/definitions/tns:quoteType",
+					"description": "See simple type quoteType. Wil signify type of quote when returned."
+				},
+				"tns:upfrontIndicator": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "This optional indicator field indicates that payment is intended to be made upfront."
+				}
+			},
+			"type": "object"
+		},
+		"tns:QuoteList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a lists of quotes. See the 'Quote' complex type.",
+			"properties": {
+				"tns:Quote": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Quote"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Quote"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:QuotePrice": {
+			"additionalProperties": false,
+			"properties": {
+				"tns:adultDiscountAmount": {
+					"$ref": "#/definitions/xsd:float"
+				},
+				"tns:adultRenewalAmount": {
+					"$ref": "#/definitions/xsd:float"
+				},
+				"tns:childDiscountAmount": {
+					"$ref": "#/definitions/xsd:float"
+				},
+				"tns:childRenewalAmount": {
+					"$ref": "#/definitions/xsd:float"
+				},
+				"tns:policyRating": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:PolicyRating"
+						}
+					],
+					"description": "The cohort matched for the information entered. i.e 'Young Singles'"
+				},
+				"tns:studentDiscountAmount": {
+					"$ref": "#/definitions/xsd:float"
+				},
+				"tns:studentRenewalAmount": {
+					"$ref": "#/definitions/xsd:float"
+				},
+				"tns:system": {
+					"$ref": "#/definitions/tns:systemIdentifierType"
+				},
+				"tns:totalAmount": {
+					"$ref": "#/definitions/xsd:float"
+				},
+				"tns:totalAmountNoDiscount": {
+					"$ref": "#/definitions/xsd:float"
+				},
+				"tns:totalDiscount": {
+					"$ref": "#/definitions/xsd:float"
+				}
+			},
+			"required": [
+				"tns:adultDiscountAmount",
+				"tns:adultRenewalAmount",
+				"tns:childDiscountAmount",
+				"tns:childRenewalAmount",
+				"tns:studentDiscountAmount",
+				"tns:studentRenewalAmount",
+				"tns:system",
+				"tns:totalAmount",
+				"tns:totalAmountNoDiscount",
+				"tns:totalDiscount"
+			],
+			"type": "object"
+		},
+		"tns:QuoteSet": {
+			"additionalProperties": false,
+			"description": "This is used to represent all QuoteSets",
+			"properties": {
+				"tns:cohortQuoteSetCode": {
+					"$ref": "#/definitions/tns:cohortQuoteSetCodeType",
+					"description": "For selector quotes, this indicates type of cohort group code to which this quoteset belongs."
+				},
+				"tns:contact": {
+					"$ref": "#/definitions/tns:Partner",
+					"description": "the partner who is the quote set contact"
+				},
+				"tns:createdDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The date the quote set was created on."
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "This is the quote reference withut leading zeroes."
+				},
+				"tns:quoteList": {
+					"$ref": "#/definitions/tns:QuoteList",
+					"description": "This is the list of quotes associated with this quote set."
+				},
+				"tns:status": {
+					"$ref": "#/definitions/tns:quoteSetStatusType",
+					"description": "This will indicate the status of the quote the quote set if it has been created already."
+				},
+				"tns:type": {
+					"$ref": "#/definitions/tns:quoteSetType",
+					"description": "See simple type quoteStType. Wil signify type of quote set when returned."
+				}
+			},
+			"type": "object"
+		},
+		"tns:QuoteSetList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of quote sets. See the QuoteSet complex type.",
+			"properties": {
+				"tns:QuoteSet": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:QuoteSet"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:QuoteSet"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Relationship": {
+			"additionalProperties": false,
+			"description": "This is used to represent a relationship.",
+			"properties": {
+				"tns:code": {
+					"$ref": "#/definitions/tns:relationshipTypeType",
+					"description": "The relationship code"
+				},
+				"tns:name": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The relationship name"
+				}
+			},
+			"required": [
+				"tns:code",
+				"tns:name"
+			],
+			"type": "object"
+		},
+		"tns:RelationshipList": {
+			"additionalProperties": false,
+			"description": "A list of relationships.",
+			"properties": {
+				"tns:Relationship": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Relationship"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Relationship"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Rule": {
+			"additionalProperties": false,
+			"description": "REDUNDANT_TYPE - No longer required but keeping in case another use is found.",
+			"properties": {
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:name": {
+					"$ref": "#/definitions/tns:objectNameType"
+				}
+			},
+			"required": [
+				"tns:id"
+			],
+			"type": "object"
+		},
+		"tns:RuleList": {
+			"additionalProperties": false,
+			"description": "REDUNDANT_TYPE - No longer required but keeping in case another use is found.",
+			"properties": {
+				"tns:Rule": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Rule"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Rule"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:SMSMessage": {
+			"additionalProperties": false,
+			"description": "This entity is used to represent a mobile text message. It enforces certain message provider restrictions. It allows client applications to utilize the ciboodle SMS service.",
+			"properties": {
+				"tns:completeNumber": {
+					"$ref": "#/definitions/tns:phoneNumberTypeNumberOnly",
+					"description": "A phone number that is assumed to be complete and will not requiring any further processing such as a default country code being prepended. Precedence is given to a completeNumber over a phoneNumber."
+				},
+				"tns:countryCode": {
+					"$ref": "#/definitions/tns:countryCodeNumberOnly",
+					"description": "The country code is optional and relates to the phoneNumber field. For UK enter 44 here. If no country code is specified the web service will default this to 353."
+				},
+				"tns:from": {
+					"$ref": "#/definitions/tns:smsFromIdentifierType1"
+				},
+				"tns:identifier": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:uniqueIdentifierType"
+						}
+					]
+				},
+				"tns:identifierType": {
+					"anyOf": [
+						{
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/tns:uniqueIdentifierNameType"
+						}
+					]
+				},
+				"tns:message": {
+					"$ref": "#/definitions/tns:textMessageTextType"
+				},
+				"tns:messageId": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "The message provider accepts an optional parameter that indicates the id of the message you are sending. This can be used to trace message responses when invoking asynchronously."
+				},
+				"tns:phoneNumber": {
+					"$ref": "#/definitions/tns:phoneNumberTypeNumberOnly",
+					"description": "A phone number is optional here because one may alternatively be passed in the completeNumber field."
+				}
+			},
+			"required": [
+				"tns:message"
+			],
+			"type": "object"
+		},
+		"tns:SMSMessageList": {
+			"additionalProperties": false,
+			"description": "Allows a client to perform a bulk sending of SMS messages. See object 'SMSMessage'",
+			"properties": {
+				"tns:SMSMessage": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:SMSMessage"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:SMSMessage"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:SalaryDeduction": {
+			"additionalProperties": false,
+			"description": "Represents the information captured when a customer chooses to pay by salary deduction",
+			"properties": {
+				"tns:employerName": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The employer/group name, mandatory."
+				},
+				"tns:groupSchemeNumber": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "Optional group scheme number."
+				},
+				"tns:staffNumber": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Optional staff number identifier."
+				}
+			},
+			"required": [
+				"tns:employerName"
+			],
+			"type": "object"
+		},
+		"tns:SalesInformation": {
+			"additionalProperties": false,
+			"description": "Contains the Sales Channel, Sales Lead, Advisor and Agent information which can be included for a policy transaction. Default values relating to the VHI website are used if none are provided.\n\t\t\t",
+			"properties": {
+				"tns:discountCode": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "A product discount code may be associated with the sales channel code."
+				},
+				"tns:salesAdvisor": {
+					"$ref": "#/definitions/tns:usernameType",
+					"description": "The sales advisor username."
+				},
+				"tns:salesChannelCode": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The specific sales channel code."
+				},
+				"tns:salesChannelCodeDescription": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:salesChannelType": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The sales channel type relating to the transaction."
+				},
+				"tns:salesChannelTypeDescription": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:salesLeadCode": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The specific sales lead code."
+				},
+				"tns:salesLeadCodeDescription": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:salesLeadType": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The sales lead type relating to the transaction."
+				},
+				"tns:salesLeadTypeDescription": {
+					"$ref": "#/definitions/tns:objectNameType"
+				}
+			},
+			"type": "object"
+		},
+		"tns:Scheme": {
+			"additionalProperties": false,
+			"description": "This type is used represent a scheme.....",
+			"properties": {
+				"tns:categoryList": {
+					"$ref": "#/definitions/tns:CategoryList"
+				},
+				"tns:changesEffectiveRenewalDateInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:deduction": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "If the group pays for mid term adjustments and new business this is set to 'Y'.\n\nIf the individual pays for mid term adjustments and new business this is set to 'N'.\n\nAn exception to this rule exists in cases where changes require group secretary approval (non-NGS)."
+				},
+				"tns:earliestPolicyCreationDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "This earliest date that a new business or transfer transaction can be performed on the scheme."
+				},
+				"tns:earliestStartDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "This earliest date that a transaction can potentially be performed on the scheme."
+				},
+				"tns:groupName": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "This external company name relating to the scheme."
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:latestEndDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "This latest date that a transaction can potentially be performed on the scheme."
+				},
+				"tns:latestPolicyCreationDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "This latest date that a new business or transfer transaction can be performed on the scheme."
+				},
+				"tns:name": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:policyRenewalDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "This scheme's policy renewal date for a given effective date."
+				},
+				"tns:renewalDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "This scheme renewal date."
+				},
+				"tns:schemePartners": {
+					"$ref": "#/definitions/tns:SchemePartnerList"
+				},
+				"tns:secApprovalRequiredInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Indicates if the scheme requires secretary approval."
+				},
+				"tns:startDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The start date of the scheme.\n\nIf using a scheme when creating a \"Travel\"l policy the policy will need to be created with an effective date pertaining to this date because pro-rata policies (mid-term new joiners) are not allowed for the travel product."
+				},
+				"tns:subsidy": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "If a subsidy exists for certain cover selections this is set to 'Y'. "
+				},
+				"tns:suspensionInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType",
+					"description": "Indicates if the scheme is suspended."
+				},
+				"tns:token": {
+					"$ref": "#/definitions/tns:guidType"
+				},
+				"tns:vhiOnlineDoctorInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:webAvailableInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:webCustomEnrolementInd": {
+					"$ref": "#/definitions/tns:yesOrNoIndicatorType"
+				},
+				"tns:webNotificationType": {
+					"$ref": "#/definitions/tns:stringFormatType1"
+				},
+				"tns:webRenewalEndDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The inclusive end date of the online Renewals window."
+				},
+				"tns:webRenewalStartDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The inclusive start date of the online Renewals window."
+				}
+			},
+			"required": [
+				"tns:id"
+			],
+			"type": "object"
+		},
+		"tns:SchemePartner": {
+			"additionalProperties": false,
+			"properties": {
+				"tns:address": {
+					"$ref": "#/definitions/tns:Address"
+				},
+				"tns:emailAddress": {
+					"$ref": "#/definitions/tns:emailAddressType2"
+				},
+				"tns:fullName": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:id": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType"
+				},
+				"tns:mobilePhone": {
+					"$ref": "#/definitions/tns:phoneNumberType1"
+				},
+				"tns:roleDescription": {
+					"$ref": "#/definitions/tns:objectNameType"
+				},
+				"tns:roleType": {
+					"$ref": "#/definitions/tns:stringFormatType1"
+				},
+				"tns:workPhone": {
+					"$ref": "#/definitions/tns:phoneNumberType1"
+				}
+			},
+			"type": "object"
+		},
+		"tns:SchemePartnerList": {
+			"additionalProperties": false,
+			"properties": {
+				"tns:SchemePartner": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:SchemePartner"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:SchemePartner"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:ServiceCredentials": {
+			"additionalProperties": false,
+			"description": "This complex type comprises of the authentication data passed in the SECURITY_TOKEN element.",
+			"properties": {
+				"tns:password": {
+					"$ref": "#/definitions/tns:passwordType"
+				},
+				"tns:username": {
+					"$ref": "#/definitions/tns:usernameType"
+				}
+			},
+			"required": [
+				"tns:password",
+				"tns:username"
+			],
+			"type": "object"
+		},
+		"tns:ServiceMessage": {
+			"additionalProperties": false,
+			"description": "This is an object used specifically for returning success and failure messages as a result of a webservice invocation. Every webservice request has an optional list of ServiceMessage objects as a return parameter.",
+			"properties": {
+				"tns:code": {
+					"$ref": "#/definitions/tns:messageCodeType"
+				},
+				"tns:message": {
+					"$ref": "#/definitions/tns:messageTextType"
+				},
+				"tns:severity": {
+					"$ref": "#/definitions/tns:severityFlagType"
+				}
+			},
+			"required": [
+				"tns:code",
+				"tns:message",
+				"tns:severity"
+			],
+			"type": "object"
+		},
+		"tns:ServiceMessageList": {
+			"additionalProperties": false,
+			"description": "Allows the webservice to return success/failure messages as a result of webservice invocations. See 'ServiceMessage' complex type.",
+			"properties": {
+				"tns:ServiceMessage": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:ServiceMessage"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:ServiceMessage"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:StudentDetail": {
+			"additionalProperties": false,
+			"description": "A representation of the infomation required to create or update student details for a member on the underlying insurance system.\n",
+			"properties": {
+				"tns:collegeCode": {
+					"$ref": "#/definitions/tns:uniqueIdentifierType",
+					"description": "The college code. There are 271 colleges within the underlying insurance system. A complete listing of which can be found at : http://vmsys124/svn/CIBOODLE/trunk/Documents/Change Requests/01. Student Indicator/collegenames.html"
+				},
+				"tns:collegeName": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The college name. There are 271 colleges within the underlying insurance system. A complete listing of which can be found at : http://vmsys124/svn/CIBOODLE/trunk/Documents/Change Requests/01. Student Indicator/collegenames.html"
+				},
+				"tns:endDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The date the member left the college in question."
+				},
+				"tns:endReason": {
+					"$ref": "#/definitions/tns:studentDetailEndReasonType",
+					"description": "The reason the person left the college in question."
+				},
+				"tns:startDate": {
+					"$ref": "#/definitions/xsd:date",
+					"description": "The college entry date."
+				}
+			},
+			"required": [
+				"tns:collegeCode",
+				"tns:startDate"
+			],
+			"type": "object"
+		},
+		"tns:SubSystem": {
+			"additionalProperties": false,
+			"description": "Signifies a back end system ciboodle is currently connected to on the environment in question.",
+			"properties": {
+				"tns:buildLabel": {
+					"$ref": "#/definitions/tns:buildLabelType",
+					"description": "All builds will have a specific label derived from either the build properties file if found or from the actual system properties if there is no build properties file.\n\nRestricts build labels to the appropriate format."
+				},
+				"tns:subSystemDetail": {
+					"$ref": "#/definitions/tns:DisplayPropertyList",
+					"description": "This list of properties denoting information about the system.\n\nWhatever can be determined programatically by the service based on the request made will be returned here.\n\nIn the case of databases, for example you will receive at a minimum :\n\n\"Database Name\" : \"FVOL18 on INFSYS (1524)\"\n\"Status\" : \"CONNECTED\"\n\nThe statuses for databases are\n\n \"CONNECTED\" : The preferred environment for any connecting user.\n \"AVAILABLE\" : Configured and available for the user to manually switch to.\n \"UNAVAILABLE\" : Configured correctly but unavaliable for one reason or another.\n\n"
+				},
+				"tns:subSystemType": {
+					"$ref": "#/definitions/tns:subSystemType",
+					"description": "Signifies the type of system.\n\n"
+				}
+			},
+			"required": [
+				"tns:buildLabel",
+				"tns:subSystemDetail",
+				"tns:subSystemType"
+			],
+			"type": "object"
+		},
+		"tns:SubSystemList": {
+			"additionalProperties": false,
+			"description": "A list of sub systems available to a particular deployment of the Service Architecture.",
+			"properties": {
+				"tns:SubSystem": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:SubSystem"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:SubSystem"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:Subsidy": {
+			"additionalProperties": false,
+			"description": "This is used to represent a subsidy.",
+			"properties": {
+				"tns:amount": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The maximum net effect, monetarily, the subsidy can have on the overall pricing irregardless of percentage?"
+				},
+				"tns:coverset": {
+					"$ref": "#/definitions/tns:Coverset",
+					"description": "The coversets relating to this subsidy."
+				},
+				"tns:lifestage": {
+					"$ref": "#/definitions/tns:lifeStageType",
+					"description": "Indicates whether this subsidy applies to the adult, children or student lifestage."
+				},
+				"tns:maxPeople": {
+					"$ref": "#/definitions/tns:integerMin0Max100Type",
+					"description": "The maximum number of people on the policy whose premium can be sunsidised using this subsidy."
+				},
+				"tns:product": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The insurance product to which the subsidy pertains."
+				},
+				"tns:rate": {
+					"$ref": "#/definitions/tns:integerMin0Max100Type",
+					"description": "The subsidy percentage up to the maximum allowed amount."
+				}
+			},
+			"required": [
+				"tns:lifestage"
+			],
+			"type": "object"
+		},
+		"tns:SubsidyList": {
+			"additionalProperties": false,
+			"description": "Allows webservices to return a list of group scheme categories. See the 'Category' complex type.",
+			"properties": {
+				"tns:Subsidy": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:Subsidy"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:Subsidy"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:TotalCostBreakdown": {
+			"additionalProperties": false,
+			"description": "This presents a summary breakdown totalling all costs associated with the transaction.",
+			"properties": {
+				"tns:deduction": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The deductions applied to the total charge shown."
+				},
+				"tns:discount": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The deductions applied to the total charge shown."
+				},
+				"tns:payment": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The payment required for the total charge shown."
+				},
+				"tns:subsidy": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The subsidy applied to the total charge shown."
+				},
+				"tns:total": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The total charge."
+				},
+				"tns:type": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "Describes whther the row indicates the current total charge, the total charge for the changes or the to-bo total charge."
+				}
+			},
+			"required": [
+				"tns:deduction",
+				"tns:discount",
+				"tns:payment",
+				"tns:subsidy",
+				"tns:total",
+				"tns:type"
+			],
+			"type": "object"
+		},
+		"tns:TotalCostBreakdownList": {
+			"additionalProperties": false,
+			"description": "A list of totals.",
+			"properties": {
+				"tns:TotalCostBreakdown": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:TotalCostBreakdown"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:TotalCostBreakdown"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:TravelCostBreakdown": {
+			"additionalProperties": false,
+			"description": "This represents the breakdown cost of a travel policy transaction.\nThe breakdown for travel policies is given per cover chosen. The reason for this is because travel policy pricing is applicable at policy level onl;y. There is no individual cost per insured.",
+			"properties": {
+				"tns:basicRate": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The base rate for the level of cover."
+				},
+				"tns:cover": {
+					"$ref": "#/definitions/tns:objectNameType",
+					"description": "The name of the level of cover the row indicates pricing informatiopn for."
+				},
+				"tns:currentDiscount": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The current discount applicable to the level of cover."
+				},
+				"tns:discount": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The discount applicable to the level of cover."
+				},
+				"tns:premium": {
+					"$ref": "#/definitions/tns:amountType",
+					"description": "The cost of the level of cover after discounts have been applied."
+				}
+			},
+			"required": [
+				"tns:basicRate",
+				"tns:cover",
+				"tns:currentDiscount",
+				"tns:discount",
+				"tns:premium"
+			],
+			"type": "object"
+		},
+		"tns:TravelCostBreakdownList": {
+			"additionalProperties": false,
+			"description": "A list of travel cost breakdowns.",
+			"properties": {
+				"tns:TravelCostBreakdown": {
+					"anyOf": [
+						{
+							"$ref": "#/definitions/tns:TravelCostBreakdown"
+						},
+						{
+							"items": {
+								"$ref": "#/definitions/tns:TravelCostBreakdown"
+							},
+							"type": "array"
+						}
+					]
+				}
+			},
+			"type": "object"
+		},
+		"tns:accountNumberType": {
+			"description": "This type is used to represent bank account numbers, credit card numbers and debit card numbers. Only light validation is performed in this type client side. Full validation is performed server side by an invocation to a shared back-end Realex routine.",
+			"maxLength": 19,
+			"minLength": 4,
+			"type": "string"
+		},
+		"tns:actionType1": {
+			"description": "Some operations require an action type to be sent in order to indicate how deep to go in terms of information retrieval. Current options supported by this actionType are COHORT, COHORT_RP, PARTNER, COHORT_PARTNER, COHORT_RP_PARTNER",
+			"enum": [
+				"COHORT",
+				"COHORT_PARTNER",
+				"COHORT_PARTNER_POLICY",
+				"COHORT_PARTNER_POLICY_IP",
+				"COHORT_RP_PARTNER_POLICY",
+				"COHORT_RP_PARTNER_POLICY_IP",
+				"PARTNER_POLICY",
+				"PARTNER_POLICY_IP",
+				"COHORT_RP",
+				"COHORT_RP_PARTNER",
+				"PARTNER",
+				"COHORT_PARTNER_POLICY_SCHEME",
+				"COHORT_PARTNER_POLICY_IP_SCHEME",
+				"COHORT_RP_PARTNER_POLICY_SCHEME",
+				"COHORT_RP_PARTNER_POLICY_IP_SCHEME",
+				"PARTNER_POLICY_SCHEME",
+				"PARTNER_POLICY_IP_SCHEME",
+				"COHORT_PARTNER_ACCOUNT",
+				"COHORT_PARTNER_POLICY_ACCOUNT",
+				"COHORT_PARTNER_POLICY_IP_ACCOUNT",
+				"COHORT_RP_PARTNER_POLICY_ACCOUNT",
+				"COHORT_RP_PARTNER_POLICY_IP_ACCOUNT",
+				"PARTNER_POLICY_ACCOUNT",
+				"PARTNER_POLICY_IP_ACCOUNT",
+				"COHORT_RP_ACCOUNT",
+				"COHORT_RP_PARTNER_ACCOUNT",
+				"PARTNER_ACCOUNT",
+				"COHORT_PARTNER_POLICY_SCHEME_ACCOUNT",
+				"COHORT_PARTNER_POLICY_IP_SCHEME_ACCOUNT",
+				"COHORT_RP_PARTNER_POLICY_SCHEME_ACCOUNT",
+				"COHORT_RP_PARTNER_POLICY_IP_SCHEME_ACCOUNT",
+				"PARTNER_POLICY_SCHEME_ACCOUNT",
+				"PARTNER_POLICY_IP_SCHEME_ACCOUNT"
+			],
+			"type": "string"
+		},
+		"tns:actionType2": {
+			"description": "Some operations require an action type to be sent in order to indicate how deep to go in terms of information retrieval. Current options supported by this actionType are COHORT, PARTNER, COHORT_PARTNER.",
+			"enum": [
+				"COHORT",
+				"COHORT_PARTNER",
+				"PARTNER"
+			],
+			"type": "string"
+		},
+		"tns:actionType3": {
+			"description": "Some operations require an action type to be sent in order to indicate how deep to go in terms of information retrieval. Current options supported by this actionType are POLICY, POLICY_IP, POLICY_IP_BENEFITS, POLICY_IP_SCHEME, POLICY_IP_BENEFITS_SCHEME, POLICY_IP_SCHEME_FINANCIALS, POLICY_IP_BENEFITS_SCHEME_FINANCIALS, POLICY_IP_SCHEME_FINANCIALS_ACCOUNT and POLICY_IP_BENEFITS_SCHEME_FINANCIALS_ACCOUNT",
+			"enum": [
+				"POLICY",
+				"POLICY_IP",
+				"POLICY_IP_BENEFITS",
+				"POLICY_IP_SCHEME",
+				"POLICY_IP_BENEFITS_SCHEME",
+				"POLICY_IP_SCHEME_FINANCIALS",
+				"POLICY_IP_BENEFITS_SCHEME_FINANCIALS",
+				"POLICY_IP_SCHEME_FINANCIALS_ACCOUNT",
+				"POLICY_IP_BENEFITS_SCHEME_FINANCIALS_ACCOUNT",
+				"CTI"
+			],
+			"type": "string"
+		},
+		"tns:actionType4": {
+			"description": "Actions with QUOTE mean include the QUOTE, actions with IP mean include insured people on the quote(s), actions with QUOTESET request inclusion of quote set and actions with QUOTELIST mean include all child quotes of the quote set.",
+			"enum": [
+				"QUOTE",
+				"QUOTE_IP",
+				"QUOTESET",
+				"QUOTESET_QUOTELIST",
+				"QUOTESET_QUOTELIST_IP",
+				"QUOTE_QUOTESET",
+				"QUOTE_QUOTESET_QUOTELIST_IP"
+			],
+			"type": "string"
+		},
+		"tns:actionType5": {
+			"description": "Actions for getCoverset web service. LOAD wil load information from GIOS. Benefit actions without load will use the supplied information to return the relevant benefits.",
+			"enum": [
+				"LOAD",
+				"LOAD_KEYBENEFIT",
+				"LOAD_APMBENEFIT",
+				"LOAD_KEYBENEFIT_APMBENEFIT",
+				"KEYBENEFIT",
+				"APMBENEFIT",
+				"KEYBENEFIT_APMBENEFIT"
+			],
+			"type": "string"
+		},
+		"tns:ageType": {
+			"description": "Verifies ages are within a reasonable range.",
+			"maximum": 150,
+			"minimum": 0,
+			"type": "integer"
+		},
+		"tns:amendSchemePolicyActionType": {
+			"description": "Defines the action to be performed on the object model passed.\n\nWill only be used initially for contract(policy\\quote) maintenance activities.\n\nINITIATE - When this is called an attempt will be made to create the initial contract image. If successful the image will be placed into a suspended state awaiting client confirmation. This will produce the \"To be\" contract pricing breakdown.\n\nCONFIRM - When this is passed after an INITIATE or a PROGRESS an attempt will be made to progress the contract to completion.\n\nABANDON - When this is called after an INITIATE or a PROGRESS an attempt will be made to delete the previously initiated image and remove it from the sytem. \n\nPROGRESS - At any stage of contract maintenance the underlying system may require additional information. It is not anticipated that this functionality will be used initially, but in the future it could be used to provide a mechanism for reducing the number of duplicate partners. i.e : The service could return a list of possible partner matches based on the initial information passed. An update of the contract model to indicate new partners would then signify an accurate match.",
+			"enum": [
+				"INITIATE",
+				"CONFIRM",
+				"ABANDON",
+				"PROGRESS",
+				"RATE",
+				"PERSIST"
+			],
+			"type": "string"
+		},
+		"tns:amountType": {
+			"description": "The different options available to the customer for receiving there billing information.",
+			"type": "number"
+		},
+		"tns:apmCohortType": {
+			"description": "This specifies cohort types used by the APM fact find. The five types are MYSELF, MYSELF_KIDS, MYSELF_PARTNER, MYSELF_PARTNER_KIDS and GROUP.",
+			"enum": [
+				"MYSELF",
+				"MYSELF_KIDS",
+				"MYSELF_PARTNER",
+				"MYSELF_PARTNER_KIDS",
+				"GROUP"
+			],
+			"type": "string"
+		},
+		"tns:bankBicType": {
+			"description": "A type used to restrict the Business Identifier Codes used in transactions. Introduced for SEPA payment integration.\n\t\t\t\n\ti.\t[A-Z]{6,6}\t\t\t\t6 mandatory uppercase letters A-Z.\n\tii.\t[A-Z2-9]\t\t\t\t1 mandatory uppercase letter or number from 2 to 9\n\tiii.[A-NP-Z0-9]\t\t \t\t1 mandatory uppercase letter (excluding letter O) or number.\n\tiv.\t([A-Z0-9]{3,3}){0,1}\t3 uppercase letters or numbers, optional but must be 3 characters if included.\n\t\n\t\t\t",
+			"maxLength": 11,
+			"pattern": "^([A-Z]{6,6}[2-9A-Z][0-9A-NP-Z]([0-9A-Z]{3,3})?)$",
+			"type": "string"
+		},
+		"tns:bankCardType": {
+			"description": "Specifies the different bank card options available to customer.",
+			"enum": [
+				"LASER",
+				"VISA",
+				"MASTERCARD"
+			],
+			"type": "string"
+		},
+		"tns:bankIbanType": {
+			"description": "A type used to restrict the International Bank Account Number used in transactions. Introduced for SEPA payment integration.\n\t\t\tCurrently caters for International specifications for IBANs at schema level.\n\t\t\t\n\ti.\t[A-Z]{2,2}\t\t\t\t2 mandatory uppercase characters\n\tii.\t[0-9]{2,2}\t\t\t\t2 mandatory numbers\n\tiv.\t[a-zA-Z0-9]{1,30}\t\t1 to 30 letters (any case) or numbers.\n\t\t\t\n\t\t\t",
+			"maxLength": 34,
+			"pattern": "^([A-Z]{2,2}[0-9]{2,2}[0-9A-Za-z]{1,30})$",
+			"type": "string"
+		},
+		"tns:bankSortCodeType": {
+			"description": "A type used to restrict the bank sort code used in transactions.",
+			"pattern": "^([\\d]{6,6})$",
+			"type": "string"
+		},
+		"tns:billingFrequencyType": {
+			"description": "The different options available to the customer for receiving there billing information.",
+			"enum": [
+				"MONTHLY",
+				"QUARTERLY",
+				"HALF_YEARLY",
+				"YEARLY"
+			],
+			"type": "string"
+		},
+		"tns:buildLabelType": {
+			"description": "Restricts build labels to the appropriate format.",
+			"maxLength": 50,
+			"minLength": 5,
+			"pattern": "^(([A-Z]|[_]|[\\-]|[0-9])*)$",
+			"type": "string"
+		},
+		"tns:categoryCodeType": {
+			"description": "Digits 0-9 or spaces, min 5, max 20.",
+			"maxLength": 5,
+			"minLength": 2,
+			"pattern": "^(([0-9])*)$",
+			"type": "string"
+		},
+		"tns:categoryLevelType": {
+			"description": "This restricts the SMS from field for text messages that can be sent within the VHI.",
+			"enum": [
+				"Neither",
+				"Compliment",
+				"Complaint"
+			],
+			"type": "string"
+		},
+		"tns:categoryNameType": {
+			"description": "A restriction on the various category types available for a scheme. \nNot all are currently listed...",
+			"enum": [
+				"STAFF",
+				"MEMBERS"
+			],
+			"type": "string"
+		},
+		"tns:cohortQuoteSetCodeType": {
+			"description": "This specifies type of cohort group code. The five types are YOUNG_SINGLES, COUPLES, YOUNG_FAMILIES, ESTABLISHED_FAMILIES and EMPTY_NESTER.",
+			"enum": [
+				"YOUNG_SINGLES",
+				"COUPLES",
+				"YOUNG_FAMILIES",
+				"ESTABLISHED_FAMILIES",
+				"EMPTY_NESTER"
+			],
+			"type": "string"
+		},
+		"tns:countryCodeNumberOnly": {
+			"description": "This simple type is for specifying country codes. It allows digits only. the minimum size is 2 digits and the maximum size is 5 digits.",
+			"maxLength": 5,
+			"minLength": 2,
+			"pattern": "^(([0-9])*)$",
+			"type": "string"
+		},
+		"tns:coverCodeType": {
+			"description": "Each coverset (plan) can have one or more optional\\mandatory levels of cover. Each level of cover will have a unique code. This restricts this code. the code can consist of uppercase letters, digits, or underscores only. This type validates the expected format.",
+			"maxLength": 30,
+			"minLength": 3,
+			"pattern": "^(([A-Z]|[_]|[0-9])*)$",
+			"type": "string"
+		},
+		"tns:coversetCodeType": {
+			"description": "Each plan (product) has associated plan code known as a coverset code. This can consist of uppercase letters, digits, or underscores only. This type validates the expected format.",
+			"maxLength": 30,
+			"minLength": 3,
+			"pattern": "^(([A-Z]|[_]|[0-9])*)$",
+			"type": "string"
+		},
+		"tns:customerNameType": {
+			"description": "Basic customer name validation enforced. a-z case insensitive + some special characters. min 3, max 200.",
+			"maxLength": 200,
+			"minLength": 3,
+			"pattern": "^([\\w\\s]*)$",
+			"type": "string"
+		},
+		"tns:cv2Type": {
+			"description": "this type restricts the possible values allowed for cv2 numbers. Allows 3-5 digits or nothing.",
+			"maxLength": 5,
+			"minLength": 0,
+			"pattern": "^([0-9]{3,5}|)$",
+			"type": "string"
+		},
+		"tns:displayPropertyNameType": {
+			"description": "Restricts the property name to a format that can be parsed for display.",
+			"maxLength": 50,
+			"minLength": 2,
+			"pattern": "^(([A-Z]|[a-z]|[0-9])*)$",
+			"type": "string"
+		},
+		"tns:documentationIndicatorType": {
+			"description": "The customers preferred method of receiving their policy related documentation and documentation notifications. By email, email and SMS or POST",
+			"enum": [
+				"EMAIL",
+				"EMAIL_SMS",
+				"POST"
+			],
+			"type": "string"
+		},
+		"tns:emailAddressType1": {
+			"description": "Min length 5, max length. Applies a proven email regex",
+			"maxLength": 50,
+			"minLength": 5,
+			"pattern": "^(\\^(([0-9A-Za-z]+_+)|([0-9A-Za-z]+\\-+)|([0-9A-Za-z]+\\.+)|([ 0-9A-Za-z]+\\++))*[0-9A-Za-z]+@(([\\w]+\\-+)|([\\w]+\\.))*[\\w]{1,63}\\.[ A-Za-z]{2,6}\\$)$",
+			"type": "string"
+		},
+		"tns:emailAddressType2": {
+			"description": "Min length 5, max length. A relaxed email validation that only validates the length. Need to add an appropriate regex at some stage.",
+			"maxLength": 100,
+			"minLength": 5,
+			"type": "string"
+		},
+		"tns:emailAddressesType": {
+			"description": "Min length 5, max length. A relaxed email validation that only validates the length. Need to add an appropriate regex at some stage.",
+			"maxLength": 500,
+			"minLength": 5,
+			"type": "string"
+		},
+		"tns:endOfTermActionType": {
+			"description": "What action to take at the time of policy renewal. The supported options are to maunally renew or to renew automatically when creating policies.",
+			"enum": [
+				"AUTOMATIC_RENEWAL",
+				"MANUAL_RENEWAL",
+				"LAPSE_AUTOMATICALLY"
+			],
+			"type": "string"
+		},
+		"tns:endOfTermActivityType": {
+			"description": "This denotes what action will be carried out on the policy by the underlying insurance system at renewal. Possibe actions are :\n\n(i) Lapse\n(ii) Reminder\n(iii) Notify",
+			"enum": [
+				"LAPSE",
+				"REMINDER",
+				"NOTIFY"
+			],
+			"type": "string"
+		},
+		"tns:environmentDetailLevelType": {
+			"description": "This type instructs the level of content to return from the \nsystemmanager.environmentDetail service. This also controls whether or not testing of the various resource availaibility is performed. This could add significant overhead",
+			"enum": [
+				"DATABASE",
+				"DOMAIN",
+				"DATABASE_DOMAIN",
+				"DATABASE_DOMAIN_TEST",
+				"DOMAIN_TEST",
+				"DATABASE_TEST"
+			],
+			"type": "string"
+		},
+		"tns:expiryDateType": {
+			"description": "This type restricts the possible values allowed for expiry date to the format represented by 0209",
+			"maxLength": 4,
+			"minLength": 4,
+			"pattern": "^([0-9]*)$",
+			"type": "string"
+		},
+		"tns:factFindActionType": {
+			"description": "The supported actions of the FactFind service",
+			"enum": [
+				"INITIATE",
+				"APM_BENEFITS",
+				"KEY_BENEFITS",
+				"BENEFITS"
+			],
+			"type": "string"
+		},
+		"tns:genderIndicatorType": {
+			"description": "Verifies the geneder is \"M\" for Male, \"F\" for \"Female\" or \"E\" for \"Either\"(i.e. not applicable)",
+			"enum": [
+				"F",
+				"M",
+				"E"
+			],
+			"type": "string"
+		},
+		"tns:genderTypeIndicator": {
+			"description": "A restriction on the various category types available for a scheme. \nNot all are currently listed...",
+			"enum": [
+				"Male",
+				"Female"
+			],
+			"type": "string"
+		},
+		"tns:getSchemeDepthType": {
+			"description": ".",
+			"enum": [
+				"FULL",
+				"SCHEME",
+				"SCHEME_CATEGORIES",
+				"SCHEME_CATEGORIES_PRODUCTS",
+				"SCHEME_CATEGORIES_PRODUCTS_PROFILES",
+				"SCHEME_CATEGORIES_PRODUCTS_PROFILES_COVERSETS",
+				"SCHEME_CATEGORIES_PRODUCTS_PROFILES_COVERSETS_SUBSIDIES",
+				"SCHEME_CATEGORIES_PRODUCTS_PROFILES_SUBSIDIES",
+				"TOKEN",
+				"PREFERRED"
+			],
+			"type": "string"
+		},
+		"tns:guidType": {
+			"description": "A type used to restrict for Oracle GUID type, presented as 32 character hexadecimal, uppercase, no hyphenation.",
+			"maxLength": 100,
+			"pattern": "^(([0-9A-Za-z]|\\-)*)$",
+			"type": "string"
+		},
+		"tns:hourType": {
+			"description": "This type restricts the possible values allowed for 2 digit hours based on the 24 hour clock.",
+			"pattern": "^((0|[0-9]|1|[0-9]|2[0-3]))$",
+			"type": "string"
+		},
+		"tns:htmlDisplayPageDataType": {
+			"description": "Certain ciboodle services will return a html rendered representation of the data being returned by the service. This can be displayed directly on any client web page.",
+			"type": "string"
+		},
+		"tns:insuredPersonLimitType": {
+			"description": "Restricts the number of people on policy quotes to a reasonable number.",
+			"maximum": 20,
+			"minimum": 0,
+			"type": "integer"
+		},
+		"tns:integerMin0Max100Type": {
+			"description": "A restriction on integers typically used to represent percentages.",
+			"maximum": 100,
+			"minimum": 0,
+			"type": "integer"
+		},
+		"tns:keyBenefitCohort": {
+			"enum": [
+				"COMMON",
+				"FEMALE_25-45"
+			],
+			"type": "string"
+		},
+		"tns:lcrLoadingType": {
+			"description": "A type used to restrict the lcrLoadingPercent to an even number betweeon 0 and 70 inclusive.",
+			"maxLength": 2,
+			"minLength": 1,
+			"pattern": "^(([1-6])?|[02468]|70)$",
+			"type": "string"
+		},
+		"tns:lifeStageType": {
+			"description": "Verifies the geneder is \"M\" for Male, \"F\" for \"Female\" or \"E\" for \"Either\"(i.e. not applicable)",
+			"enum": [
+				"ADULT",
+				"STUDENT",
+				"CHILD"
+			],
+			"type": "string"
+		},
+		"tns:logCommentType": {
+			"description": "This type restricts text messages to 160 charcaters in length.",
+			"maxLength": 1950,
+			"type": "string"
+		},
+		"tns:maintenanceActionType": {
+			"description": "Defines the action to be performed on the object model passed.\n\nWill only be used initially for contract(policy\\quote) maintenance activities.\n\nVALIDATE - A new action to facilitate BIC/IBAN validation introduced with SEPA payment integration.\n\nINITIATE - When this is called an attempt will be made to create the initial contract image. If successful the image will be placed into a suspended state awaiting client confirmation. This will produce the \"To be\" contract pricing breakdown.\n\nCONFIRM - When this is passed after an INITIATE or a PROGRESS an attempt will be made to progress the contract to completion.\n\nABANDON - When this is called after an INITIATE or a PROGRESS an attempt will be made to delete the previously initiated image and remove it from the sytem. \n\nPROGRESS - At any stage of contract maintenance the underlying system may require additional information. It is not anticipated that this functionality will be used initially, but in the future it could be used to provide a mechanism for reducing the number of duplicate partners. i.e : The service could return a list of possible partner matches based on the initial information passed. An update of the contract model to indicate new partners would then signify an accurate match.",
+			"enum": [
+				"VALIDATE",
+				"INITIATE",
+				"CONFIRM",
+				"ABANDON",
+				"PROGRESS"
+			],
+			"type": "string"
+		},
+		"tns:marketingPreferencesType": {
+			"description": "This indicates a customers marketing preferences. By default they will recieve\nmarketing on all channels. They can opt out of any or all by selecting the appropriate\ncombination below. Default is all (EMAIL_PHONE_POST)",
+			"maxLength": 200,
+			"pattern": "^(([0-9A-Z]|_)*)$",
+			"type": "string"
+		},
+		"tns:membershipNameType": {
+			"description": "A restriction on the various categorymbership types available for a group scheme category\nNot all are currently listed...",
+			"enum": [
+				"DEFAULT",
+				"DEPENDANT",
+				"MEMBER",
+				"SPOUSE",
+				"OTHER"
+			],
+			"type": "string"
+		},
+		"tns:messageCodeType": {
+			"description": "Message codes are used as unique identifiers for application messages. This type enforces the use of uppercase characters, underscores and digits only. No spaces.",
+			"maxLength": 200,
+			"pattern": "^(([0-9A-Z]|_)*)$",
+			"type": "string"
+		},
+		"tns:messageTextType": {
+			"description": "Currently used to validate the text retunred in messages. At present this simply validates a string is returned.",
+			"type": "string"
+		},
+		"tns:minuteType": {
+			"description": "This type restricts the possible values allowed for 2 digit minutes.",
+			"pattern": "^([0-5][0-9])$",
+			"type": "string"
+		},
+		"tns:movementCodeType": {
+			"description": "Movement Code enumeration values (new business, amendment, transfer and renewal)",
+			"enum": [
+				"HCTNB",
+				"HCTAMND",
+				"HCTAMNDQUO",
+				"HCTTRNSF",
+				"HCTREN",
+				"RENEWAL_CHANGED_BANK",
+				"RENEWAL_NO_CHANGE",
+				"CHANGE_BILLING",
+				"OPT_OUT"
+			],
+			"type": "string"
+		},
+		"tns:objectNameType": {
+			"description": "Used to validate entity names. i.e 'Plan Name'.",
+			"maxLength": 200,
+			"minLength": 1,
+			"pattern": "^(([A-Za-z]|\\-|[\\w]|[\\w\\D]|[\\s])*)$",
+			"type": "string"
+		},
+		"tns:partnerInsurancesActionType": {
+			"enum": [
+				"STATELESS",
+				"VMC_INITIAL",
+				"VMC_REFRESH"
+			],
+			"type": "string"
+		},
+		"tns:partnerType": {
+			"description": "This specifies what type of partner entity this is. The three types are FULL, PROSPECT and UNKNOWN. Each of these will have varying levels of content available.",
+			"enum": [
+				"FULL",
+				"PROSPECT",
+				"UNKNOWN"
+			],
+			"type": "string"
+		},
+		"tns:passwordType": {
+			"description": "Implements a basic password restriction. Minimum length 8 characters and maximum is 30 characters.",
+			"maxLength": 30,
+			"minLength": 8,
+			"pattern": "^([\\w]*)$",
+			"type": "string"
+		},
+		"tns:paymentMethodType": {
+			"description": "The different payment methods available to customers within ciboodle.",
+			"enum": [
+				"CASH",
+				"CHEQUE",
+				"INVOICE",
+				"DIRECT_DEBIT",
+				"DEBIT_CREDIT_CARD",
+				"SALARY_DEDUCTION"
+			],
+			"type": "string"
+		},
+		"tns:phoneNumberType1": {
+			"description": "Digits 0-9 or spaces, min 1, max 20.",
+			"maxLength": 20,
+			"minLength": 1,
+			"pattern": "^(([0-9]|[\\s])*)$",
+			"type": "string"
+		},
+		"tns:phoneNumberTypeNumberOnly": {
+			"description": "This simple type is for specifying phone numbers containing only digit characters. i.e : 0851672772 is valid but 086-7282828 is invalid. The maximum length of this field is 20 and the minimum length is 4.",
+			"maxLength": 20,
+			"minLength": 4,
+			"pattern": "^(([0-9])*)$",
+			"type": "string"
+		},
+		"tns:pmcRecordTypeType": {
+			"description": "A simple type for Previous Medical Cover redordTypes. Valid types are Insurance (INS), Non-Residence (NRS) and Unemployment (UEM)",
+			"enum": [
+				"INS",
+				"NRS",
+				"UEM"
+			],
+			"type": "string"
+		},
+		"tns:policyHolderAgeType": {
+			"description": "Verifies the age of the policy holder is >= 18",
+			"maximum": 120,
+			"minimum": 18,
+			"type": "integer"
+		},
+		"tns:policyTypeType": {
+			"description": "Enforces a policy type indicator to be set. Types are GLOBAL, CORE, DENTAL, TRAVEL or QUOTE",
+			"enum": [
+				"CORE",
+				"TRAVEL",
+				"HEALTHSTEPS",
+				"DENTAL",
+				"GLOBAL",
+				"QUOTE",
+				"PLANP",
+				"PMS",
+				"CASHPLAN",
+				"COR",
+				"TRV",
+				"HST",
+				"DNT",
+				"GLB",
+				"GL2",
+				"GL3",
+				"GL4",
+				"GL5",
+				"GL6",
+				"GL7",
+				"GL8",
+				"GL9",
+				"GLC",
+				"CRP",
+				"HCP"
+			],
+			"type": "string"
+		},
+		"tns:ppsNumberType": {
+			"description": "Same client side pps number validation performed in ciboodle.\n7 numbers followed by 2 uppercase characters from A-X.",
+			"pattern": "^([0-9]{7,7}[A-Xa-z]{1,2})$",
+			"type": "string"
+		},
+		"tns:productTypeType": {
+			"description": "Enforces a policy type indicator to be set. Types are HEALTHSTEPS, GLOBAL, CORE, DENTAL or TRAVEL",
+			"enum": [
+				"CORE",
+				"TRAVEL",
+				"HEALTHSTEPS",
+				"DENTAL",
+				"GLOBAL",
+				"PLANP",
+				"CASHPLAN",
+				"COR",
+				"TRV",
+				"HST",
+				"DNT",
+				"GLB",
+				"GL2",
+				"GL3",
+				"GL4",
+				"GL5",
+				"GL6",
+				"GL7",
+				"GL8",
+				"GL9",
+				"GLC",
+				"CRP",
+				"HCP"
+			],
+			"type": "string"
+		},
+		"tns:productTypeType2": {
+			"description": "Used to tell the CTI the product type of the policy.",
+			"enum": [
+				"Hospital",
+				"HealthCashPlan",
+				"Healthsteps",
+				"Dental",
+				"PlanP",
+				"Travel",
+				"VhiInternational",
+				"BackPacker"
+			],
+			"type": "string"
+		},
+		"tns:quoteCohortHierarchyType": {
+			"description": "This specifies the rank of a quote within a cohort hierarchy. The three options are Price Sensitive, Mix and Best Fit.",
+			"enum": [
+				"Price Sensitive",
+				"Mix",
+				"Best Fit"
+			],
+			"type": "string"
+		},
+		"tns:quoteSetStatusType": {
+			"description": "this restricts the list of statuses returned to ACTIVE, CLOSED, EXPIRED, INACTIVE, ISSUED, NEW, OPEN or UNUSED",
+			"enum": [
+				"ACTIVE",
+				"CLOSED",
+				"EXPIRED",
+				"INACTIVE",
+				"ISSUED",
+				"NEW",
+				"OPEN",
+				"UNUSED"
+			],
+			"type": "string"
+		},
+		"tns:quoteSetType": {
+			"description": "This specifies type of quote. The three types are FULL, SELECTOR and QUICK. Each of these will have varying levels of content available.",
+			"enum": [
+				"APM",
+				"APM_WEB",
+				"APM_WEB_DETAILED",
+				"APM_WEB_NO_LOADING",
+				"FULL",
+				"GROUP",
+				"GROUP_APM",
+				"QUICK",
+				"SELECTOR"
+			],
+			"type": "string"
+		},
+		"tns:quoteStatusType": {
+			"description": "this restricts the list of statuses returned to ACTIVE, DECLINED, DELETED, EXPIRED, ISSUED, LOCKED, PENDED, PROGRESSED, REJECTED or UNKNOWN",
+			"enum": [
+				"ACTIVE",
+				"DECLINED",
+				"DELETED",
+				"EXPIRED",
+				"ISSUED",
+				"LOCKED",
+				"PENDED",
+				"PROGRESSED",
+				"REJECTED",
+				"UNKNOWN"
+			],
+			"type": "string"
+		},
+		"tns:quoteType": {
+			"description": "TA replication of the the quoteSetType his specifies type of quote. The types are GROUP, FULL, SELECTOR and QUICK. Each of these will have varying levels of content available.",
+			"enum": [
+				"APM",
+				"APM_WEB",
+				"APM_WEB_DETAILED",
+				"APM_WEB_NO_LOADING",
+				"FULL",
+				"GROUP",
+				"GROUP_APM",
+				"QUICK",
+				"SELECTOR"
+			],
+			"type": "string"
+		},
+		"tns:ratingStatusType": {
+			"description": "Rating status enumeration values",
+			"enum": [
+				"APPLIED",
+				"PROJECTED",
+				"INVALID"
+			],
+			"type": "string"
+		},
+		"tns:readUpdateActionType": {
+			"enum": [
+				"READ",
+				"UPDATE"
+			],
+			"type": "string"
+		},
+		"tns:relationshipTypeType": {
+			"description": "A restriction on the various types of relationship available for insured persons. :\n\nCHI - Child of\nDEP- Dependant of\nPAR- Parent of\nREL- Relative of\nRESP- Responsibility for\nSPOUSE - Spouse of\nUNM - Unmarried partner of\nGPAR - Grandparents of\nSIBLING - Sibling of\nUA - Uncle/Aunt of\nOTHER",
+			"enum": [
+				"AFFIL",
+				"AFFINITY",
+				"CONTE",
+				"CONTR",
+				"GCHI",
+				"EMPE",
+				"EMPR",
+				"CHI",
+				"DEP",
+				"PAR",
+				"REL",
+				"RESP",
+				"SPOUSE",
+				"UNM",
+				"GPAR",
+				"SIBLING",
+				"NN",
+				"UA",
+				"OTHER"
+			],
+			"type": "string"
+		},
+		"tns:renewalStatusType": {
+			"description": "Used to return to the CTI whether or not a policy is on or off renewal",
+			"enum": [
+				"OnRenewal",
+				"OffRenewal"
+			],
+			"type": "string"
+		},
+		"tns:satisfactionLevelType": {
+			"description": "This restricts the SMS from field for text messages that can be sent within the VHI.",
+			"enum": [
+				"Low",
+				"Medium",
+				"High"
+			],
+			"type": "string"
+		},
+		"tns:schemeProductTypeType": {
+			"description": "The various product types from a scheme perspective.",
+			"enum": [
+				"HOSPITAL",
+				"PLAN_P",
+				"HEALTHSTEPS",
+				"DENTAL",
+				"DENTALG",
+				"DENTALS",
+				"DENTALP",
+				"GLOBAL",
+				"GLOBALMISYS",
+				"GLOBALEIIDA",
+				"GLOBAL_AIB",
+				"GLOBAL_PCI",
+				"GLOBAL_CJET",
+				"GLOBAL_DFA",
+				"GLOBAL_PLUS",
+				"GLOBAL_DIG",
+				"VHI_INTERNATIONAL"
+			],
+			"type": "string"
+		},
+		"tns:securityPolicy": {
+			"description": "Some operations require an action type to be sent in order to indicate how deep to go in terms of information retrieval. Current options supported by this actionType are POLICY and POLICY_IP",
+			"enum": [
+				"UT_S_H",
+				"UT_S_H_SSL",
+				"SIGN_ENCR",
+				"NO_AUTH"
+			],
+			"type": "string"
+		},
+		"tns:severityFlagType": {
+			"description": "Each 'ServiceMessage' returned from a webservice invocation will have an associated severity to indicate what type (Error, Warning, Information) the message is. This restricts that severity indicator.",
+			"enum": [
+				"E",
+				"W",
+				"Q",
+				"I"
+			],
+			"maxLength": 1,
+			"minLength": 1,
+			"type": "string"
+		},
+		"tns:smsFromIdentifierType1": {
+			"description": "This restricts the SMS from field for text messages that can be sent within the VHI.",
+			"enum": [
+				"AuthCode",
+				"SessionPIN",
+				"YourPIN",
+				"DoNotReply"
+			],
+			"type": "string"
+		},
+		"tns:stringFormatType1": {
+			"description": "Upper case only, min 1, max 30, with underscores.",
+			"maxLength": 30,
+			"minLength": 1,
+			"pattern": "^(([A-Z]|[_]|[0-9])*)$",
+			"type": "string"
+		},
+		"tns:stringMin0Max100CharType": {
+			"description": "A type used to enforce that a string is between 0 characters and 40 characters in length. Used primarily in address validation.",
+			"maxLength": 100,
+			"minLength": 0,
+			"type": "string"
+		},
+		"tns:stringMin0Max40CharType": {
+			"description": "A type used to enforce that a string is between 0 characters and 40 characters in length. Used primarily in address validation.",
+			"maxLength": 40,
+			"minLength": 0,
+			"type": "string"
+		},
+		"tns:stringMin3Max100CharType": {
+			"description": "A type used to enforce that a string is between 3 characters and 100 characters in length. Used primarily in address validation.",
+			"maxLength": 100,
+			"minLength": 3,
+			"type": "string"
+		},
+		"tns:studentDetailEndReasonType": {
+			"description": "A restriction on the various types of relationship available for insured persons. :\n\nCOMP - Completed\nTRAN - Transferred\nGRAD - Graduated\nLEFT - Left\nEXP - Expelled\nDEF - Deffered\n",
+			"enum": [
+				"COMP",
+				"GRAD",
+				"TRAN",
+				"LEFT",
+				"EXP",
+				"DEF"
+			],
+			"type": "string"
+		},
+		"tns:subSystemType": {
+			"description": "Currently the only type of system ciboodleconnects to is a database but this could be telephony platforms, diallers, web services, storage facilities etc. going forward.",
+			"enum": [
+				"DATABASE"
+			],
+			"type": "string"
+		},
+		"tns:systemIdentifierType": {
+			"description": "Each registered client application will be given a system identifier that can consist of uppercase letters, undersores and numbers. i.e 'VHI_IE'. this simple type is used to valdiate this format.",
+			"enum": [
+				"VHI_IE",
+				"CC_CIB",
+				"INTRANET",
+				"IAS",
+				"NRC",
+				"GIOS",
+				"CLAIM",
+				"ORAWEB",
+				"MY_VHI",
+				"BATCH",
+				"WAM",
+				"VHI_IE_TRAVEL",
+				"GROUP",
+				"VMC",
+				"CISCO",
+				"CORPORATE"
+			],
+			"maxLength": 30,
+			"minLength": 3,
+			"type": "string"
+		},
+		"tns:textMessageTextType": {
+			"description": "This type restricts text messages to 160 charcaters in length.",
+			"maxLength": 160,
+			"type": "string"
+		},
+		"tns:uniqueIdentifierNameType": {
+			"description": "This is for specifying the type of uniqueIdentifier you are sending into the service. Supported values for this field currently are \"POLICY\" \"PARTNER\" or \"QUOTE\". Max length is set to 10.",
+			"maxLength": 10,
+			"pattern": "^(([A-Z])*)$",
+			"type": "string"
+		},
+		"tns:uniqueIdentifierType": {
+			"description": "A type used to restrict fields used as entity unique identifiers (integer based). Enforces a 10-digit maximum.",
+			"maximum": 9999999999,
+			"minimum": 0,
+			"type": "integer"
+		},
+		"tns:usernameType": {
+			"description": "Simple type used to represnt a username. This is a string between 3 and 30 characters.",
+			"maxLength": 30,
+			"minLength": 3,
+			"pattern": "^(([A-Z]|[a-z]|[_]|[0-9])*)$",
+			"type": "string"
+		},
+		"tns:uuidType": {
+			"description": "A type used to restrict for java.util.UUID type.",
+			"maxLength": 36,
+			"pattern": "^([0-9A-Fa-f]{8,8}\\-[0-9A-Fa-f]{4,4}\\-[1-5][0-9A-Fa-f]{3,3}\\-[8-9A-Ba-b][0-9A-Fa-f]{3,3}\\-[0-9A-Fa-f]{12,12})$",
+			"type": "string"
+		},
+		"tns:yesOrNoIndicatorType": {
+			"description": "This verifies the indicator is \"Y\" or \"N\" only.",
+			"enum": [
+				"Y",
+				"N"
+			],
+			"type": "string"
+		},
+		"xsd:date": {
+			"type": "string"
+		},
+		"xsd:float": {
+			"type": "number"
+		},
+		"xsd:string": {
+			"type": "string"
+		}
+	},
+	"description": "JSON Schema generated by XMLSpy v2021 rel. 3 (x64) (http://www.altova.com)",
+	"properties": {
+		"@xmlns:tns": {
+			"default": "http://www.vhi.ie/ws/schemas"
+		},
+		"@xmlns:xsd": {
+			"default": "http://www.w3.org/2001/XMLSchema"
+		},
+		"tns:SECURITY_TOKEN": {
+			"$ref": "#/definitions/.tns:SECURITY_TOKEN"
+		}
+	},
+	"type": "object"
+}
